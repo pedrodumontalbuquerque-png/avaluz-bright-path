@@ -1,5 +1,5 @@
 import { Facebook, Instagram, Linkedin, Twitter, Shield, Lock } from "lucide-react";
-import avaluzLogo from "@/assets/avaluz-logo.jpeg";
+import avaluzLogo from "@/assets/avaluz-logo.png";
 
 const footerLinks = {
   produto: [
