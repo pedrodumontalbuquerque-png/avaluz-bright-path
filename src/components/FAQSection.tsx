@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const faqs = [
   {
@@ -37,8 +37,12 @@ const faqs = [
 
 export function FAQSection() {
   return (
-    <section id="faq" className="py-20 md:py-28 bg-muted/50">
-      <div className="container max-w-4xl">
+    <section id="faq" className="py-24 md:py-32 bg-primary-dark relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-20" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-primary/10 via-transparent to-transparent" />
+
+      <div className="container max-w-4xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -46,10 +50,11 @@ export function FAQSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-4">
             Perguntas Frequentes
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto rounded-full mb-6" />
+          <p className="text-lg text-primary-foreground/70">
             Tire suas dúvidas sobre a plataforma AvaLuz
           </p>
         </motion.div>
@@ -65,12 +70,12 @@ export function FAQSection() {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-card border border-border rounded-xl px-6 shadow-sm data-[state=open]:shadow-md data-[state=open]:border-primary/30 transition-all"
+                className="glass-dark rounded-xl px-6 border border-primary-light/10 data-[state=open]:border-primary-light/30 data-[state=open]:shadow-glow transition-all duration-300"
               >
-                <AccordionTrigger className="text-left font-medium text-foreground hover:text-primary py-5">
+                <AccordionTrigger className="text-left font-medium text-primary-foreground hover:text-primary-light py-5 [&[data-state=open]>svg]:text-primary-light">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
+                <AccordionContent className="text-primary-foreground/70 pb-5 leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -85,12 +90,15 @@ export function FAQSection() {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="text-center mt-12"
         >
-          <p className="text-muted-foreground mb-4">
+          <p className="text-primary-foreground/60 mb-4">
             Não encontrou sua resposta?
           </p>
-          <Button variant="outline" className="gap-2">
-            <MessageCircle className="w-4 h-4" />
+          <Button 
+            variant="outline" 
+            className="gap-2 border-primary-light/30 text-primary-foreground hover:bg-primary-light/10 hover:border-primary-light/50 group"
+          >
             Contate-nos
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Button>
         </motion.div>
       </div>
