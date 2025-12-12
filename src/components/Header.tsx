@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import avaluzLogo from "@/assets/avaluz-logo.jpeg";
+import avaluzLogo from "@/assets/avaluz-logo.png";
 
 const navLinks = [
   { label: "Início", href: "#inicio" },
@@ -39,7 +39,7 @@ export function Header() {
             <img 
               src={avaluzLogo} 
               alt="AvaLuz - A Luz do Mercado Imobiliário" 
-              className="h-10 md:h-12 w-auto object-contain"
+              className="h-9 md:h-10 w-auto object-contain"
             />
           </a>
 
