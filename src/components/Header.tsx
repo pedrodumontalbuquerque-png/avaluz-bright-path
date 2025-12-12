@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import avaluzLogo from "@/assets/avaluz-logo.jpeg";
 
 const navLinks = [
   { label: "Início", href: "#inicio" },
@@ -34,16 +35,12 @@ export function Header() {
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
-            <div className="relative">
-              <div className="w-10 h-10 rounded-lg bg-hero-gradient flex items-center justify-center">
-                <span className="text-primary-foreground font-heading font-bold text-lg">A</span>
-              </div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-accent rounded-full animate-pulse" />
-            </div>
-            <span className="font-heading font-bold text-xl tracking-tight text-foreground">
-              AVA<span className="text-primary">LUZ</span>
-            </span>
+          <a href="#" className="flex items-center">
+            <img 
+              src={avaluzLogo} 
+              alt="AvaLuz - A Luz do Mercado Imobiliário" 
+              className="h-10 md:h-12 w-auto object-contain"
+            />
           </a>
 
           {/* Desktop Navigation */}

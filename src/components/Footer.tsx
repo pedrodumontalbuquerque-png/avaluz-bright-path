@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Linkedin, Twitter, Shield, Lock } from "lucide-react";
+import avaluzLogo from "@/assets/avaluz-logo.jpeg";
 
 const footerLinks = {
   produto: [
@@ -35,11 +36,12 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="col-span-2 md:col-span-4 lg:col-span-1 mb-8 lg:mb-0">
-            <a href="#" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center">
-                <span className="font-heading font-bold text-lg">A</span>
-              </div>
-              <span className="font-heading font-bold text-xl">AVALUZ</span>
+            <a href="#" className="flex items-center mb-4">
+              <img 
+                src={avaluzLogo} 
+                alt="AvaLuz" 
+                className="h-12 w-auto object-contain brightness-0 invert"
+              />
             </a>
             <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
               Plataforma líder em avaliações imobiliárias com inteligência artificial no Brasil.
