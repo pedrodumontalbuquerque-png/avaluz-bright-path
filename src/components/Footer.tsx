@@ -31,19 +31,22 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-primary-dark text-primary-foreground">
-      <div className="container py-16">
+    <footer className="bg-primary-dark text-primary-foreground relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+
+      <div className="container py-16 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="col-span-2 md:col-span-4 lg:col-span-1 mb-8 lg:mb-0">
-            <a href="#" className="flex items-center mb-4">
+            <a href="#" className="flex items-center mb-4 group">
               <img 
                 src={avaluzLogo} 
                 alt="AvaLuz" 
-                className="h-12 w-auto object-contain brightness-0 invert"
+                className="h-12 w-auto object-contain brightness-0 invert transition-all duration-300 group-hover:drop-shadow-[0_0_10px_rgba(14,165,233,0.5)]"
               />
             </a>
-            <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
+            <p className="text-primary-foreground/60 text-sm leading-relaxed max-w-xs">
               Plataforma líder em avaliações imobiliárias com inteligência artificial no Brasil.
             </p>
             
@@ -54,9 +57,9 @@ export function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
+                  className="w-10 h-10 rounded-lg glass-dark flex items-center justify-center hover:bg-primary-light/20 hover:shadow-glow transition-all duration-300 group border border-primary-light/10"
                 >
-                  <social.icon className="w-5 h-5" />
+                  <social.icon className="w-5 h-5 group-hover:text-primary-light transition-colors" />
                 </a>
               ))}
             </div>
@@ -64,13 +67,13 @@ export function Footer() {
 
           {/* Links */}
           <div>
-            <h4 className="font-heading font-semibold mb-4">Produto</h4>
+            <h4 className="font-heading font-semibold mb-4 text-primary-foreground">Produto</h4>
             <ul className="space-y-3">
               {footerLinks.produto.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    className="text-sm text-primary-foreground/60 hover:text-primary-light transition-colors"
                   >
                     {link.label}
                   </a>
@@ -80,13 +83,13 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-heading font-semibold mb-4">Empresa</h4>
+            <h4 className="font-heading font-semibold mb-4 text-primary-foreground">Empresa</h4>
             <ul className="space-y-3">
               {footerLinks.empresa.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    className="text-sm text-primary-foreground/60 hover:text-primary-light transition-colors"
                   >
                     {link.label}
                   </a>
@@ -96,13 +99,13 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-heading font-semibold mb-4">Suporte</h4>
+            <h4 className="font-heading font-semibold mb-4 text-primary-foreground">Suporte</h4>
             <ul className="space-y-3">
               {footerLinks.suporte.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    className="text-sm text-primary-foreground/60 hover:text-primary-light transition-colors"
                   >
                     {link.label}
                   </a>
@@ -116,17 +119,17 @@ export function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-primary-foreground/10">
         <div className="container py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-primary-foreground/60">
+          <p className="text-sm text-primary-foreground/50">
             © {new Date().getFullYear()} AvaLuz. Todos os direitos reservados.
           </p>
           
           {/* Security Badges */}
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 text-primary-foreground/60">
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-2 text-primary-foreground/50 hover:text-primary-light transition-colors">
               <Shield className="w-4 h-4" />
               <span className="text-xs">SSL Seguro</span>
             </div>
-            <div className="flex items-center gap-2 text-primary-foreground/60">
+            <div className="flex items-center gap-2 text-primary-foreground/50 hover:text-primary-light transition-colors">
               <Lock className="w-4 h-4" />
               <span className="text-xs">Dados Protegidos</span>
             </div>
