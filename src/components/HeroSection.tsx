@@ -37,7 +37,7 @@ export function HeroSection() {
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.25rem] font-heading font-bold text-primary-foreground leading-tight mb-6">
               Na visita, tempo é dinheiro.{" "}
-              <span className="text-accent">Mostre o valor com dados</span> — e feche com confiança.
+              <span className="text-accent">Mostre o valor com dados</span>, e feche com confiança.
             </h1>
 
             <p className="text-lg text-primary-foreground/80 max-w-xl mx-auto lg:mx-0 mb-4">
