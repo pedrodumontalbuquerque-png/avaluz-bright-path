@@ -10,37 +10,37 @@ import { ArrowRight } from "lucide-react";
 
 const faqs = [
   {
-    question: "Como funciona a avaliação com IA?",
-    answer: "Nossa inteligência artificial utiliza machine learning para analisar milhares de dados do mercado imobiliário, incluindo transações recentes, características do imóvel, localização e tendências de mercado. O algoritmo compara seu imóvel com propriedades similares para determinar um valor justo e preciso."
+    question: "É difícil de usar?",
+    answer: "Não! AvaLuz foi feito para ser simples. Você preenche os dados do imóvel em poucos campos e recebe tudo pronto. Se souber usar WhatsApp, sabe usar AvaLuz."
   },
   {
-    question: "Quanto tempo leva para receber o relatório?",
-    answer: "O relatório é gerado instantaneamente após você inserir os dados do imóvel. Em menos de 30 segundos, você terá acesso a uma avaliação completa com valor estimado, análise comparativa e insights de mercado."
+    question: "De onde vêm os comparativos do CMA?",
+    answer: "Analisamos dados reais de mercado da sua região: imóveis à venda, vendidos recentemente e tendências de preço por m². Tudo atualizado e verificado."
   },
   {
-    question: "Os dados do meu imóvel ficam seguros?",
-    answer: "Sim, absolutamente. Utilizamos criptografia de ponta a ponta e seguimos as melhores práticas de segurança da indústria. Seus dados são armazenados em servidores seguros e nunca são compartilhados com terceiros sem sua autorização."
+    question: "O PDF sai pronto mesmo?",
+    answer: "Sim! Em poucos minutos você recebe um PDF profissional com logo, dados do imóvel, valor estimado, comparativos e análise de mercado. Pronto para enviar ao cliente."
   },
   {
-    question: "Posso cancelar minha assinatura a qualquer momento?",
-    answer: "Sim! Você pode cancelar sua assinatura a qualquer momento através do painel de controle. Não há multas ou taxas de cancelamento. Após o cancelamento, você continua tendo acesso até o fim do período pago."
+    question: "O que é crédito?",
+    answer: "1 crédito = 1 avaliação completa de imóvel. Cada vez que você gera uma avaliação, usa 1 crédito. Escolha o plano com a quantidade ideal para você."
   },
   {
-    question: "Quais cidades têm cobertura?",
-    answer: "Atualmente, a AvaLuz cobre mais de 156 cidades em todo o Brasil, incluindo todas as capitais e principais regiões metropolitanas. Estamos constantemente expandindo nossa cobertura para atender mais regiões."
+    question: "Posso cancelar quando quiser?",
+    answer: "Sim! Sem multas ou burocracia. Você pode cancelar pelo próprio painel a qualquer momento. Seus créditos ficam válidos até o fim do período pago."
   },
   {
-    question: "Como a precisão de 91% é calculada?",
-    answer: "Nossa taxa de precisão é calculada comparando as avaliações da AvaLuz com os valores reais de venda dos imóveis. Analisamos milhares de transações efetivadas e medimos a diferença entre nossa estimativa e o preço final de venda."
+    question: "Meus dados ficam seguros?",
+    answer: "Absolutamente. Usamos criptografia de ponta e seguimos as melhores práticas de segurança. Seus dados nunca são compartilhados sem sua autorização."
   }
 ];
 
 export function FAQSection() {
   return (
-    <section id="faq" className="py-24 md:py-32 bg-primary-dark relative overflow-hidden">
+    <section id="faq" className="py-20 md:py-28 bg-primary-dark relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-primary/10 via-transparent to-transparent" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary/10 via-transparent to-transparent" />
 
       <div className="container max-w-4xl relative z-10">
         <motion.div
@@ -51,11 +51,11 @@ export function FAQSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-4">
-            Perguntas Frequentes
+            Perguntas <span className="text-accent">Frequentes</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto rounded-full mb-6" />
+          <div className="w-20 h-1 bg-accent mx-auto rounded-full mb-6" />
           <p className="text-lg text-primary-foreground/70">
-            Tire suas dúvidas sobre a plataforma AvaLuz
+            Tire suas dúvidas sobre a plataforma
           </p>
         </motion.div>
 
@@ -70,9 +70,9 @@ export function FAQSection() {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="glass-dark rounded-xl px-6 border border-primary-light/10 data-[state=open]:border-primary-light/30 data-[state=open]:shadow-glow transition-all duration-300"
+                className="bg-card/10 backdrop-blur-sm rounded-xl px-6 border border-primary-light/10 data-[state=open]:border-accent/30 transition-all duration-300"
               >
-                <AccordionTrigger className="text-left font-medium text-primary-foreground hover:text-primary-light py-5 [&[data-state=open]>svg]:text-primary-light">
+                <AccordionTrigger className="text-left font-medium text-primary-foreground hover:text-accent py-5 [&[data-state=open]>svg]:text-accent">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-primary-foreground/70 pb-5 leading-relaxed">
@@ -95,7 +95,7 @@ export function FAQSection() {
           </p>
           <Button 
             variant="outline" 
-            className="gap-2 border-primary-light/30 text-primary-foreground hover:bg-primary-light/10 hover:border-primary-light/50 group"
+            className="gap-2 border-accent/30 text-primary-foreground hover:bg-accent/10 hover:border-accent/50 hover:text-accent group"
           >
             Contate-nos
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

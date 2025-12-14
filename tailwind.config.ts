@@ -63,11 +63,6 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Premium additions
-        cyan: {
-          400: "hsl(199 89% 48%)",
-          500: "hsl(199 89% 43%)",
-        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -105,13 +100,9 @@ export default {
           "0%": { transform: "translateX(100%)" },
           "100%": { transform: "translateX(0)" },
         },
-        "count-up": {
-          "0%": { opacity: "0", transform: "translateY(10px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
         float: {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-20px)" },
+          "50%": { transform: "translateY(-15px)" },
         },
         "float-slow": {
           "0%, 100%": { transform: "translateY(0)" },
@@ -119,23 +110,15 @@ export default {
         },
         pulse: {
           "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0.5" },
+          "50%": { opacity: "0.6" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(199 89% 48% / 0.3)" },
-          "50%": { boxShadow: "0 0 40px hsl(199 89% 48% / 0.6)" },
+          "0%, 100%": { boxShadow: "0 0 15px hsl(207 83% 25% / 0.2)" },
+          "50%": { boxShadow: "0 0 30px hsl(207 83% 25% / 0.4)" },
         },
         shimmer: {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
-        },
-        "draw-line": {
-          "0%": { strokeDashoffset: "1000" },
-          "100%": { strokeDashoffset: "0" },
-        },
-        "spin-slow": {
-          "0%": { transform: "rotate(0deg)" },
-          "100%": { transform: "rotate(360deg)" },
         },
       },
       animation: {
@@ -145,19 +128,16 @@ export default {
         "fade-in": "fade-in 0.4s ease-out forwards",
         "scale-in": "scale-in 0.3s ease-out forwards",
         "slide-in-right": "slide-in-right 0.3s ease-out",
-        "count-up": "count-up 0.5s ease-out forwards",
         float: "float 6s ease-in-out infinite",
         "float-slow": "float-slow 8s ease-in-out infinite",
         pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         shimmer: "shimmer 2s linear infinite",
-        "draw-line": "draw-line 2s ease-out forwards",
-        "spin-slow": "spin-slow 20s linear infinite",
       },
       boxShadow: {
-        glow: "0 0 40px hsl(199 89% 48% / 0.4)",
-        "glow-lg": "0 0 60px hsl(199 89% 48% / 0.5)",
-        "glow-primary": "0 0 40px hsl(224 76% 40% / 0.4)",
+        glow: "0 0 30px hsl(207 83% 25% / 0.25)",
+        "glow-lg": "0 0 50px hsl(207 83% 25% / 0.3)",
+        "glow-accent": "0 0 30px hsl(24 92% 46% / 0.3)",
       },
     },
   },

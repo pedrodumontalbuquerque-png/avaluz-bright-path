@@ -1,72 +1,95 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Check, Sparkles, Zap } from "lucide-react";
+import { motion } from "framer-motion";
+import { Check, Sparkles, Info, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const plans = [
   {
-    name: "Básico",
-    description: "Grátis para Sempre",
-    monthlyPrice: 0,
-    yearlyPrice: 0,
+    name: "Grátis",
+    price: "R$ 0",
+    period: "",
+    credits: "2 créditos de avaliação",
+    description: "Para experimentar",
     features: [
-      "5 avaliações por mês",
-      "Relatório básico",
-      "Suporte por email",
-      "Acesso ao simulador",
-      "Histórico de 30 dias"
+      { text: "Valor do imóvel", available: true },
+      { text: "Valor do aluguel", available: true },
     ],
-    cta: "Começar Grátis",
+    cta: "Começar grátis",
     variant: "outline" as const,
-    popular: false
+    popular: false,
+    stripePlan: "free",
+  },
+  {
+    name: "Proprietário",
+    price: "R$ 29,90",
+    period: "/mês",
+    credits: "10 créditos mensais",
+    description: "Para donos de imóveis",
+    features: [
+      { text: "Valor do imóvel + aluguel", available: true },
+      { text: "Projeção/valorização (6 meses / 1 ano)", available: true, comingSoon: true },
+      { text: "Histórico de avaliações", available: true, comingSoon: true },
+      { text: "Suporte por email", available: true },
+      { text: "Noticiário mensal do mercado", available: true, comingSoon: true },
+    ],
+    cta: "Quero ser avisado",
+    variant: "outline" as const,
+    popular: false,
+    stripePlan: "proprietario",
+    future: true,
   },
   {
     name: "Profissional",
-    description: "Para corretores e investidores",
-    monthlyPrice: 97,
-    yearlyPrice: 970,
+    price: "R$ 97",
+    period: "/mês",
+    credits: "80 créditos mensais",
+    description: "Para corretores ativos",
     features: [
-      "Avaliações ilimitadas",
-      "Relatório PDF premium",
-      "Suporte prioritário",
-      "IA avançada",
-      "Análise comparativa",
-      "API básica",
-      "Exportação de dados"
+      { text: "Valor do imóvel + aluguel", available: true },
+      { text: "Bate-papo sobre imóvel com IA", available: true },
+      { text: "Projeção/valorização", available: true },
+      { text: "Histórico + suporte prioritário", available: true },
+      { text: "Noticiário + grupo de network", available: true },
+      { text: "Leitura de imagem na avaliação", available: true, comingSoon: true },
+      { text: "Estudo de mercado com sua foto", available: true, comingSoon: true },
     ],
-    cta: "Assinar Agora",
+    cta: "Assinar Profissional",
     variant: "default" as const,
-    popular: true
+    popular: true,
+    stripePlan: "profissional",
   },
   {
-    name: "Enterprise",
-    description: "Para imobiliárias e construtoras",
-    monthlyPrice: 297,
-    yearlyPrice: 2970,
+    name: "Imobiliária",
+    price: "Sob consulta",
+    period: "",
+    credits: "Até 1.200 créditos",
+    description: "Para equipes de até 15 pessoas",
     features: [
-      "Tudo do Profissional",
-      "API completa",
-      "White label",
-      "Gerente dedicado",
-      "SLA garantido",
-      "Integrações customizadas",
-      "Treinamento da equipe"
+      { text: "Tudo do Profissional", available: true },
+      { text: "Usuário avulso: R$ 47,90", available: true },
+      { text: "Fluxo de avaliações do time", available: true },
+      { text: "Funil de vendas integrado", available: true },
+      { text: "Painel de captações diárias", available: true },
+      { text: "Suporte individualizado", available: true },
     ],
-    cta: "Falar com Vendas",
+    cta: "Falar com vendas",
     variant: "outline" as const,
-    popular: false
-  }
+    popular: false,
+    stripePlan: "imobiliaria",
+  },
 ];
 
 export function PricingSection() {
-  const [isYearly, setIsYearly] = useState(false);
-
   return (
-    <section id="planos" className="py-24 md:py-32 bg-background relative overflow-hidden">
-      {/* Background decorations */}
+    <section id="planos" className="py-20 md:py-28 bg-background relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-grid-pattern-light opacity-50" />
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary-light/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
 
       <div className="container relative z-10">
         <motion.div
@@ -76,38 +99,22 @@ export function PricingSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-4">
-            Escolha o <span className="text-gradient">Plano Ideal</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4">
+            Escolha o <span className="text-primary">plano ideal</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto rounded-full mb-6" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Comece gratuitamente e evolua conforme suas necessidades
+          <div className="w-20 h-1 bg-accent mx-auto rounded-full mb-6" />
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4">
+            Comece grátis e evolua conforme sua necessidade
           </p>
-
-          {/* Billing Toggle */}
-          <div className="flex items-center justify-center gap-4">
-            <span className={`text-sm font-medium transition-colors ${!isYearly ? "text-foreground" : "text-muted-foreground"}`}>
-              Mensal
-            </span>
-            <Switch
-              checked={isYearly}
-              onCheckedChange={setIsYearly}
-              className="data-[state=checked]:bg-gradient-to-r data-[state=checked]:from-primary data-[state=checked]:to-primary-light"
-            />
-            <span className={`text-sm font-medium transition-colors ${isYearly ? "text-foreground" : "text-muted-foreground"}`}>
-              Anual
-            </span>
-            <motion.span 
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="ml-2 px-3 py-1 bg-gradient-to-r from-accent/20 to-orange-500/20 text-accent text-xs font-semibold rounded-full border border-accent/30"
-            >
-              Economize 20%
-            </motion.span>
+          
+          {/* Credit explanation */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
+            <Info className="w-4 h-4" />
+            1 crédito = 1 avaliação completa
           </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
@@ -115,79 +122,83 @@ export function PricingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className={`relative rounded-2xl transition-all duration-500 ${
-                plan.popular 
-                  ? "scale-105 z-10" 
-                  : "hover:scale-[1.02]"
-              }`}
+              className={`relative ${plan.popular ? "lg:-mt-4 lg:mb-4" : ""}`}
             >
-              {/* Gradient Border for Popular */}
+              {/* Popular Badge */}
               {plan.popular && (
-                <div className="absolute -inset-[1px] bg-gradient-to-r from-primary via-primary-light to-purple-500 rounded-2xl" />
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10 px-4 py-1.5 bg-accent rounded-full flex items-center gap-1.5 shadow-lg">
+                  <Sparkles className="w-4 h-4 text-accent-foreground" />
+                  <span className="text-sm font-semibold text-accent-foreground">Mais Popular</span>
+                </div>
               )}
 
-              <div className={`relative bg-card rounded-2xl border ${
+              {/* Future Badge */}
+              {plan.future && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10 px-4 py-1.5 bg-muted rounded-full flex items-center gap-1.5 shadow-lg border border-border">
+                  <span className="text-sm font-semibold text-muted-foreground">Em breve</span>
+                </div>
+              )}
+
+              <div className={`relative h-full bg-card rounded-2xl border transition-all duration-300 ${
                 plan.popular 
-                  ? "border-transparent shadow-2xl" 
-                  : "border-border shadow-lg hover:border-primary/30 hover:shadow-xl"
-              } transition-all duration-300 h-full`}>
-                
-                {/* Popular Badge */}
+                  ? "border-accent shadow-xl shadow-accent/10" 
+                  : "border-border hover:border-primary/30 hover:shadow-lg"
+              }`}>
+                {/* Glow Effect for Popular */}
                 {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-gradient-to-r from-primary to-primary-light rounded-full flex items-center gap-1.5 shadow-glow">
-                    <Sparkles className="w-4 h-4 text-white" />
-                    <span className="text-sm font-semibold text-white">Mais Popular</span>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent rounded-2xl" />
                 )}
 
-                {/* Glow Effect */}
-                {plan.popular && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary-light/10 rounded-2xl blur-xl -z-10" />
-                )}
-
-                <div className="p-6 lg:p-8">
+                <div className="relative p-6">
                   {/* Plan Header */}
                   <div className="text-center mb-6">
                     <h3 className="text-xl font-heading font-bold text-foreground mb-1">
                       {plan.name}
                     </h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-muted-foreground mb-4">
                       {plan.description}
                     </p>
-                  </div>
-
-                  {/* Price */}
-                  <div className="text-center mb-6">
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={isYearly ? "yearly" : "monthly"}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.9 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <span className={`text-4xl lg:text-5xl font-heading font-bold ${plan.popular ? "text-gradient" : "text-foreground"}`}>
-                          R$ {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
-                        </span>
-                        <span className="text-muted-foreground">
-                          /{isYearly ? "ano" : "mês"}
-                        </span>
-                      </motion.div>
-                    </AnimatePresence>
+                    
+                    {/* Price */}
+                    <div className="mb-2">
+                      <span className={`text-3xl font-heading font-bold ${plan.popular ? "text-accent" : "text-foreground"}`}>
+                        {plan.price}
+                      </span>
+                      {plan.period && (
+                        <span className="text-muted-foreground">{plan.period}</span>
+                      )}
+                    </div>
+                    
+                    {/* Credits */}
+                    <p className="text-sm text-primary font-medium">
+                      {plan.credits}
+                    </p>
                   </div>
 
                   {/* Features */}
                   <ul className="space-y-3 mb-8">
-                    {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3">
+                    {plan.features.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-3">
                         <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
                           plan.popular 
-                            ? "bg-gradient-to-r from-primary to-primary-light" 
+                            ? "bg-accent" 
                             : "bg-primary/10"
                         }`}>
-                          <Check className={`w-3 h-3 ${plan.popular ? "text-white" : "text-primary"}`} />
+                          <Check className={`w-3 h-3 ${plan.popular ? "text-accent-foreground" : "text-primary"}`} />
                         </div>
-                        <span className="text-sm text-muted-foreground">{feature}</span>
+                        <span className="text-sm text-muted-foreground flex items-center gap-1">
+                          {feature.text}
+                          {feature.comingSoon && (
+                            <Tooltip>
+                              <TooltipTrigger>
+                                <span className="badge-coming-soon ml-1">Breve</span>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Funcionalidade em desenvolvimento</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          )}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -197,15 +208,14 @@ export function PricingSection() {
                     variant={plan.variant}
                     className={`w-full ${
                       plan.popular 
-                        ? "bg-gradient-to-r from-primary to-primary-light hover:shadow-glow text-white border-0" 
-                        : plan.name === "Enterprise"
+                        ? "bg-accent hover:bg-accent/90 text-accent-foreground font-semibold btn-glow-accent border-0" 
+                        : plan.name === "Imobiliária"
                           ? "hover:bg-primary/10 hover:text-primary hover:border-primary"
                           : ""
                     } transition-all duration-300`}
                     size="lg"
-                    data-payment-link={plan.popular ? "pro-plan" : undefined}
+                    data-stripe-plan={plan.stripePlan}
                   >
-                    {plan.popular && <Zap className="w-4 h-4 mr-2" />}
                     {plan.cta}
                   </Button>
                 </div>
