@@ -77,17 +77,28 @@ export function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.4 }}
-              className="mt-10"
+              className="mt-10 flex items-center gap-4 justify-center lg:justify-start"
             >
-              <p className="text-sm text-primary-foreground/60">
-                Usado por corretores que querem estar à frente do mercado.
-              </p>
-              {/* Logo placeholders */}
-              <div className="flex items-center gap-6 mt-4 justify-center lg:justify-start opacity-50">
-                <div className="h-6 w-20 bg-primary-foreground/20 rounded" />
-                <div className="h-6 w-24 bg-primary-foreground/20 rounded" />
-                <div className="h-6 w-16 bg-primary-foreground/20 rounded" />
+              {/* Stacked Avatars */}
+              <div className="flex items-center">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 border-2 border-primary-dark overflow-hidden">
+                  <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face')] bg-cover bg-center" />
+                </div>
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 border-2 border-primary-dark overflow-hidden -ml-3">
+                  <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face')] bg-cover bg-center" />
+                </div>
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 border-2 border-primary-dark overflow-hidden -ml-3">
+                  <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face')] bg-cover bg-center" />
+                </div>
+                <div className="w-10 h-10 rounded-full bg-primary-dark/80 border-2 border-primary-dark flex items-center justify-center -ml-3">
+                  <span className="text-xs font-semibold text-primary-foreground">+3k</span>
+                </div>
               </div>
+              
+              {/* Text */}
+              <p className="text-sm text-primary-foreground/70">
+                profissionais confiam na <span className="text-accent font-medium">AvaLuz</span>
+              </p>
             </motion.div>
           </motion.div>
 
