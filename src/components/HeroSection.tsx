@@ -1,23 +1,18 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, TrendingUp, Shield, Zap } from "lucide-react";
+import { ArrowRight, FileText, Play, Home, DollarSign, BarChart3, FileCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-primary-dark">
-      {/* Animated Background */}
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-hero-gradient">
+      {/* Background Elements */}
       <div className="absolute inset-0">
-        {/* Gradient Mesh */}
-        <div className="absolute inset-0 bg-gradient-radial from-primary/20 via-transparent to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-primary-light/10 via-transparent to-transparent blur-3xl" />
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-40" />
         
-        {/* Animated Grid Pattern */}
-        <div className="absolute inset-0 bg-grid-pattern-animated opacity-30" />
-        
-        {/* Decorative Orbs */}
-        <div className="absolute top-1/4 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-primary-light/10 rounded-full blur-3xl animate-pulse animation-delay-500" />
-        <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse animation-delay-1000" />
+        {/* Light Glow */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary-light/20 via-transparent to-transparent blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gradient-radial from-accent/10 via-transparent to-transparent blur-3xl" />
       </div>
 
       <div className="container relative z-10">
@@ -29,35 +24,28 @@ export function HeroSection() {
             transition={{ duration: 0.6 }}
             className="text-center lg:text-left"
           >
-            {/* AI Badge */}
+            {/* Badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1, duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark text-primary-light text-sm font-medium mb-6 border border-primary-light/20"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground text-sm font-medium mb-6 border border-primary-foreground/20"
             >
-              <span className="flex items-center gap-1.5">
-                <Sparkles className="w-4 h-4" />
-                Avaliações com IA
-              </span>
-              <span className="w-1 h-1 rounded-full bg-primary-light/50" />
-              <span>91% de Precisão</span>
+              <FileText className="w-4 h-4 text-accent" />
+              <span>Relatórios em PDF + Estudo de Mercado (CMA) em minutos</span>
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text-primary-foreground leading-tight mb-4">
-              A <span className="text-gradient">Luz</span> do Mercado
-              <br />
-              Imobiliário
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.25rem] font-heading font-bold text-primary-foreground leading-tight mb-6">
+              Na visita, tempo é dinheiro.{" "}
+              <span className="text-accent">Mostre o valor com dados</span> — e feche com confiança.
             </h1>
 
-            <h2 className="text-xl sm:text-2xl lg:text-3xl text-primary-foreground font-heading font-bold mb-6">
-              Avaliações Imobiliárias que Iluminam
-            </h2>
+            <p className="text-lg text-primary-foreground/80 max-w-xl mx-auto lg:mx-0 mb-4">
+              AvaLuz gera avaliação do imóvel, valor de aluguel, comparativos da região e um PDF profissional pronto para enviar ao cliente.
+            </p>
 
-            <p className="text-lg text-primary-foreground/70 max-w-xl mx-auto lg:mx-0 mb-8">
-              Descubra o valor real do seu imóvel em segundos. Nossa tecnologia de 
-              Inteligência Artificial analisa milhares de dados do mercado para 
-              entregar avaliações precisas e confiáveis.
+            <p className="text-base text-primary-foreground/60 italic max-w-lg mx-auto lg:mx-0 mb-8">
+              "Você já chutou um preço e viu o cliente travar? Com AvaLuz, você prova o valor com estudo de mercado."
             </p>
 
             {/* CTAs */}
@@ -69,41 +57,36 @@ export function HeroSection() {
             >
               <Button 
                 size="lg" 
-                className="group text-base px-8 bg-gradient-to-r from-primary to-primary-light hover:shadow-glow transition-all duration-300" 
-                data-payment-link
+                className="group text-base px-8 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold btn-glow-accent" 
               >
-                Simule uma Avaliação Agora
+                Criar conta e começar grátis
                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="text-base px-8 border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 hover:border-primary-light/50 transition-all duration-300"
+                className="text-base px-8 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:border-primary-foreground/50 transition-all duration-300 group"
               >
-                Ver Planos
+                <Play className="mr-2 w-5 h-5" />
+                Ver microvídeos do app
               </Button>
             </motion.div>
 
-            {/* Trust Indicators */}
+            {/* Social Proof */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.4 }}
-              className="flex items-center gap-6 mt-10 justify-center lg:justify-start"
+              className="mt-10"
             >
-              <div className="flex -space-x-3">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <div
-                    key={i}
-                    className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/40 to-primary-light/40 border-2 border-primary-dark flex items-center justify-center text-xs font-medium text-primary-foreground"
-                  >
-                    {String.fromCharCode(64 + i)}
-                  </div>
-                ))}
-              </div>
-              <div className="text-sm text-primary-foreground/70">
-                <span className="font-semibold text-primary-foreground">+3.400</span> profissionais
-                <br />já confiam na AvaLuz
+              <p className="text-sm text-primary-foreground/60">
+                Usado por corretores que querem estar à frente do mercado.
+              </p>
+              {/* Logo placeholders */}
+              <div className="flex items-center gap-6 mt-4 justify-center lg:justify-start opacity-50">
+                <div className="h-6 w-20 bg-primary-foreground/20 rounded" />
+                <div className="h-6 w-24 bg-primary-foreground/20 rounded" />
+                <div className="h-6 w-16 bg-primary-foreground/20 rounded" />
               </div>
             </motion.div>
           </motion.div>
@@ -119,77 +102,88 @@ export function HeroSection() {
             <div className="relative z-10 float">
               <div className="glass-card rounded-2xl overflow-hidden border-primary-light/20">
                 {/* Browser Header */}
-                <div className="flex items-center gap-2 px-4 py-3 bg-primary-dark/50 border-b border-primary-light/10">
+                <div className="flex items-center gap-2 px-4 py-3 bg-primary-dark/60 border-b border-primary-light/10">
                   <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-500/60" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
-                    <div className="w-3 h-3 rounded-full bg-green-500/60" />
+                    <div className="w-3 h-3 rounded-full bg-red-400/60" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-400/60" />
+                    <div className="w-3 h-3 rounded-full bg-green-400/60" />
                   </div>
                   <div className="flex-1 mx-4">
                     <div className="bg-primary-dark/50 rounded-md px-3 py-1.5 text-xs text-primary-foreground/50">
-                      app.avaluz.com.br/dashboard
+                      app.avaluz.com.br/avaliacao
                     </div>
                   </div>
                 </div>
                 
                 {/* Dashboard Content */}
-                <div className="p-6 bg-gradient-to-br from-card/90 to-primary-dark/50">
-                  <div className="flex items-center justify-between mb-6">
-                    <div>
-                      <p className="text-sm text-primary-foreground/60">Valor Estimado</p>
-                      <p className="text-3xl font-heading font-bold text-primary-foreground">R$ 485.000</p>
+                <div className="p-6 bg-gradient-to-br from-card/95 to-primary-dark/60">
+                  {/* Cards Grid */}
+                  <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="bg-primary-dark/40 rounded-xl p-4 border border-primary-light/10">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Home className="w-4 h-4 text-primary-light" />
+                        <span className="text-xs text-primary-foreground/60">Valor Estimado</span>
+                      </div>
+                      <p className="text-xl font-heading font-bold text-primary-foreground">R$ 485.000</p>
                     </div>
-                    <div className="px-3 py-1.5 rounded-full bg-primary-light/20 text-primary-light text-sm font-medium flex items-center gap-1.5">
-                      <TrendingUp className="w-4 h-4" />
-                      Alta Precisão
+                    <div className="bg-primary-dark/40 rounded-xl p-4 border border-primary-light/10">
+                      <div className="flex items-center gap-2 mb-2">
+                        <DollarSign className="w-4 h-4 text-accent" />
+                        <span className="text-xs text-primary-foreground/60">Valor do Aluguel</span>
+                      </div>
+                      <p className="text-xl font-heading font-bold text-primary-foreground">R$ 2.800/mês</p>
                     </div>
-                  </div>
-                  
-                  {/* Mini Chart */}
-                  <div className="h-32 flex items-end gap-2 mb-6">
-                    {[40, 65, 45, 70, 55, 80, 60, 75, 85, 70, 90, 95].map((h, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ height: 0 }}
-                        animate={{ height: `${h}%` }}
-                        transition={{ delay: 0.5 + i * 0.05, duration: 0.4 }}
-                        className="flex-1 bg-gradient-to-t from-primary to-primary-light/50 rounded-t-sm"
-                      />
-                    ))}
                   </div>
 
-                  {/* Stats Row */}
-                  <div className="grid grid-cols-3 gap-4">
-                    <div className="glass-dark rounded-lg p-3 text-center border border-primary-light/10">
-                      <p className="text-xs text-primary-foreground/50">m²</p>
-                      <p className="font-semibold text-primary-foreground">85</p>
+                  {/* CMA Section */}
+                  <div className="bg-primary-dark/40 rounded-xl p-4 border border-primary-light/10 mb-4">
+                    <div className="flex items-center gap-2 mb-3">
+                      <BarChart3 className="w-4 h-4 text-primary-light" />
+                      <span className="text-sm font-medium text-primary-foreground">CMA: Comparativos por m²</span>
                     </div>
-                    <div className="glass-dark rounded-lg p-3 text-center border border-primary-light/10">
-                      <p className="text-xs text-primary-foreground/50">Quartos</p>
-                      <p className="font-semibold text-primary-foreground">3</p>
+                    <div className="flex items-end gap-2 h-20">
+                      {[65, 85, 70, 95, 80, 90, 75].map((h, i) => (
+                        <motion.div
+                          key={i}
+                          initial={{ height: 0 }}
+                          animate={{ height: `${h}%` }}
+                          transition={{ delay: 0.5 + i * 0.08, duration: 0.4 }}
+                          className={`flex-1 rounded-t ${i === 3 ? 'bg-accent' : 'bg-primary-light/60'}`}
+                        />
+                      ))}
                     </div>
-                    <div className="glass-dark rounded-lg p-3 text-center border border-primary-light/10">
-                      <p className="text-xs text-primary-foreground/50">Confiança</p>
-                      <p className="font-semibold text-primary-light">91%</p>
+                    <div className="flex justify-between text-xs text-primary-foreground/50 mt-2">
+                      <span>R$ 5.200/m²</span>
+                      <span>R$ 5.700/m²</span>
+                      <span>R$ 6.100/m²</span>
                     </div>
+                  </div>
+
+                  {/* PDF Status */}
+                  <div className="flex items-center justify-between bg-green-500/10 rounded-xl p-4 border border-green-500/20">
+                    <div className="flex items-center gap-3">
+                      <FileCheck className="w-5 h-5 text-green-400" />
+                      <span className="text-sm font-medium text-primary-foreground">PDF Gerado</span>
+                    </div>
+                    <span className="text-xs text-green-400 font-medium">Pronto para envio</span>
                   </div>
                 </div>
               </div>
 
-              {/* Floating Cards */}
+              {/* Floating Toast Cards */}
               <motion.div
                 initial={{ opacity: 0, y: 20, x: -20 }}
                 animate={{ opacity: 1, y: 0, x: 0 }}
-                transition={{ delay: 0.8, duration: 0.4 }}
-                className="absolute -bottom-4 -left-8 glass-card rounded-xl p-4 border border-primary-light/20 float-delayed"
+                transition={{ delay: 1, duration: 0.4 }}
+                className="absolute -bottom-4 -left-4 glass-card rounded-xl p-3 border border-primary-light/20 float-delayed"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
-                    <span className="text-green-400 text-lg">✓</span>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
+                    <span className="text-green-400 text-sm">✓</span>
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-primary-foreground">Relatório Pronto!</p>
-                    <p className="text-xs text-primary-foreground/50">Há 2 segundos</p>
+                    <p className="text-xs font-medium text-primary-foreground">Relatório pronto!</p>
+                    <p className="text-[10px] text-primary-foreground/50">Há 2 segundos</p>
                   </div>
                 </div>
               </motion.div>
@@ -197,30 +191,30 @@ export function HeroSection() {
               <motion.div
                 initial={{ opacity: 0, y: -20, x: 20 }}
                 animate={{ opacity: 1, y: 0, x: 0 }}
-                transition={{ delay: 1, duration: 0.4 }}
-                className="absolute -top-4 -right-4 glass-card rounded-xl px-4 py-2 border border-primary-light/20 float-slow"
+                transition={{ delay: 1.2, duration: 0.4 }}
+                className="absolute -top-2 -right-2 glass-card rounded-xl px-3 py-2 border border-primary-light/20 float-slow"
               >
                 <div className="flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-primary-light" />
-                  <span className="text-sm font-medium text-primary-foreground">91% Confiança</span>
+                  <BarChart3 className="w-4 h-4 text-accent" />
+                  <span className="text-xs font-medium text-primary-foreground">CMA atualizado</span>
                 </div>
               </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.2, duration: 0.4 }}
-                className="absolute top-1/3 -right-6 glass-card rounded-xl px-4 py-2 border border-primary-light/20 float"
+                transition={{ delay: 1.4, duration: 0.4 }}
+                className="absolute top-1/2 -right-6 glass-card rounded-xl px-3 py-2 border border-primary-light/20 float"
               >
                 <div className="flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-yellow-400" />
-                  <span className="text-sm font-medium text-primary-foreground">Análise Instantânea</span>
+                  <FileText className="w-4 h-4 text-primary-light" />
+                  <span className="text-xs font-medium text-primary-foreground">PDF exportado</span>
                 </div>
               </motion.div>
             </div>
 
             {/* Background Glow */}
-            <div className="absolute inset-0 bg-gradient-radial from-primary/30 via-primary-light/10 to-transparent blur-3xl scale-150 -z-10" />
+            <div className="absolute inset-0 bg-gradient-radial from-primary/20 via-transparent to-transparent blur-3xl scale-150 -z-10" />
           </motion.div>
         </div>
       </div>

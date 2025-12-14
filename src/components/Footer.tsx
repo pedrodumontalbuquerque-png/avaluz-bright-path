@@ -1,24 +1,24 @@
 import { Facebook, Instagram, Linkedin, Twitter, Shield, Lock } from "lucide-react";
+import { Link } from "react-router-dom";
 import avaluzLogo from "@/assets/avaluz-logo.png";
 
 const footerLinks = {
   produto: [
-    { label: "Simulador", href: "#simulador" },
-    { label: "Relatórios", href: "#" },
-    { label: "API", href: "#" },
-    { label: "Integrações", href: "#" },
+    { label: "Como Funciona", href: "#como-funciona" },
+    { label: "Benefícios", href: "#beneficios" },
+    { label: "Planos", href: "#planos" },
+    { label: "FAQ", href: "#faq" },
   ],
   empresa: [
     { label: "Sobre Nós", href: "#" },
     { label: "Blog", href: "#" },
-    { label: "Carreiras", href: "#" },
     { label: "Contato", href: "#" },
+    { label: "Suporte", href: "#" },
   ],
-  suporte: [
-    { label: "Central de Ajuda", href: "#" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Termos de Uso", href: "#" },
-    { label: "Privacidade", href: "#" },
+  legal: [
+    { label: "Termos de Uso", href: "/termos", isRoute: true },
+    { label: "Privacidade", href: "/privacidade", isRoute: true },
+    { label: "LGPD", href: "/privacidade", isRoute: true },
   ],
 };
 
@@ -43,11 +43,14 @@ export function Footer() {
               <img 
                 src={avaluzLogo} 
                 alt="AvaLuz" 
-                className="h-12 w-auto object-contain brightness-0 invert transition-all duration-300 group-hover:drop-shadow-[0_0_10px_rgba(14,165,233,0.5)]"
+                className="h-10 w-auto object-contain brightness-0 invert transition-all duration-300 group-hover:opacity-80"
               />
             </a>
-            <p className="text-primary-foreground/60 text-sm leading-relaxed max-w-xs">
-              Plataforma líder em avaliações imobiliárias com inteligência artificial no Brasil.
+            <p className="text-primary-foreground/60 text-sm leading-relaxed max-w-xs mb-2">
+              A Luz do Mercado Imobiliário.
+            </p>
+            <p className="text-primary-foreground/50 text-sm leading-relaxed max-w-xs">
+              Avaliações imobiliárias com dados reais para corretores que querem fechar mais vendas.
             </p>
             
             {/* Social Links */}
@@ -57,9 +60,9 @@ export function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-lg glass-dark flex items-center justify-center hover:bg-primary-light/20 hover:shadow-glow transition-all duration-300 group border border-primary-light/10"
+                  className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center hover:bg-accent/20 hover:text-accent transition-all duration-300 group border border-primary-foreground/10"
                 >
-                  <social.icon className="w-5 h-5 group-hover:text-primary-light transition-colors" />
+                  <social.icon className="w-5 h-5" />
                 </a>
               ))}
             </div>
@@ -73,7 +76,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-primary-foreground/60 hover:text-primary-light transition-colors"
+                    className="text-sm text-primary-foreground/60 hover:text-accent transition-colors"
                   >
                     {link.label}
                   </a>
@@ -89,7 +92,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-primary-foreground/60 hover:text-primary-light transition-colors"
+                    className="text-sm text-primary-foreground/60 hover:text-accent transition-colors"
                   >
                     {link.label}
                   </a>
@@ -99,20 +102,41 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-heading font-semibold mb-4 text-primary-foreground">Suporte</h4>
+            <h4 className="font-heading font-semibold mb-4 text-primary-foreground">Legal</h4>
             <ul className="space-y-3">
-              {footerLinks.suporte.map((link) => (
+              {footerLinks.legal.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-primary-foreground/60 hover:text-primary-light transition-colors"
-                  >
-                    {link.label}
-                  </a>
+                  {link.isRoute ? (
+                    <Link
+                      to={link.href}
+                      className="text-sm text-primary-foreground/60 hover:text-accent transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-sm text-primary-foreground/60 hover:text-accent transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
           </div>
+        </div>
+      </div>
+
+      {/* LGPD Notice */}
+      <div className="border-t border-primary-foreground/10">
+        <div className="container py-4">
+          <p className="text-xs text-primary-foreground/40 text-center max-w-3xl mx-auto">
+            Este site coleta dados para melhorar sua experiência. Ao continuar navegando, você concorda com nossa{" "}
+            <Link to="/privacidade" className="text-accent hover:underline">Política de Privacidade</Link>{" "}
+            e com os{" "}
+            <Link to="/termos" className="text-accent hover:underline">Termos de Uso</Link>.
+          </p>
         </div>
       </div>
 
@@ -125,13 +149,13 @@ export function Footer() {
           
           {/* Security Badges */}
           <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2 text-primary-foreground/50 hover:text-primary-light transition-colors">
+            <div className="flex items-center gap-2 text-primary-foreground/50 hover:text-accent transition-colors">
               <Shield className="w-4 h-4" />
               <span className="text-xs">SSL Seguro</span>
             </div>
-            <div className="flex items-center gap-2 text-primary-foreground/50 hover:text-primary-light transition-colors">
+            <div className="flex items-center gap-2 text-primary-foreground/50 hover:text-accent transition-colors">
               <Lock className="w-4 h-4" />
-              <span className="text-xs">Dados Protegidos</span>
+              <span className="text-xs">LGPD Compliant</span>
             </div>
           </div>
         </div>
