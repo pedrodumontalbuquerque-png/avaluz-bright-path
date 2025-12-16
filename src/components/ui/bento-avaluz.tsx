@@ -83,20 +83,29 @@ function BentoCard({ feature, index }: { feature: Feature; index: number }) {
     <div
       ref={cardRef}
       className={cn(
-        "group relative overflow-hidden rounded-2xl border border-primary/10 bg-gradient-to-br from-background to-muted/30 p-6 transition-all duration-500",
-        "hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1",
+        "group relative overflow-hidden rounded-2xl bg-white p-6 transition-all duration-500",
+        "shadow-[0_10px_40px_rgba(0,0,0,0.08)]",
+        "hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] hover:-translate-y-1",
+        isLarge 
+          ? "border-2 border-blue-200 bg-gradient-to-br from-blue-50/40 via-white to-white" 
+          : "border border-slate-200",
         feature.className,
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       )}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div 
+        className="absolute inset-0 opacity-100 transition-opacity duration-500"
+        style={{
+          background: 'radial-gradient(ellipse 60% 120% at 12% 0%, rgba(10,63,116,0.12), transparent 72%)'
+        }}
+      />
       
       {/* Animated background element */}
       <div 
         className={cn(
-          "absolute -right-8 -top-8 w-32 h-32 rounded-full bg-gradient-to-br from-primary/10 to-primary/5 blur-2xl transition-transform duration-700",
+          "absolute -right-8 -top-8 w-32 h-32 rounded-full bg-gradient-to-br from-blue-100 to-blue-50 blur-2xl transition-transform duration-700",
           feature.animation === "bento-float" && "group-hover:translate-y-2 group-hover:translate-x-2",
           feature.animation === "bento-pulse" && "group-hover:scale-110",
           feature.animation === "bento-tilt" && "group-hover:rotate-12",
@@ -107,27 +116,27 @@ function BentoCard({ feature, index }: { feature: Feature; index: number }) {
 
       <div className="relative z-10 flex flex-col h-full">
         {/* Badge */}
-        <span className="inline-flex w-fit items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary mb-4">
+        <span className="inline-flex w-fit items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 border border-blue-200 text-blue-700 mb-4">
           {feature.badge}
         </span>
 
         {/* Icon */}
         <div className={cn(
-          "w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110",
-          isLarge && "w-16 h-16"
+          "rounded-xl bg-gradient-to-br from-blue-50 to-white border border-blue-100 flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 shadow-sm",
+          isLarge ? "w-16 h-16" : "w-12 h-12"
         )}>
-          <Icon className={cn("text-primary", isLarge ? "w-8 h-8" : "w-6 h-6")} />
+          <Icon className={cn("text-blue-900", isLarge ? "w-8 h-8" : "w-6 h-6")} />
         </div>
 
         {/* Content */}
         <h3 className={cn(
-          "font-heading font-semibold text-foreground mb-2 transition-colors",
+          "font-heading font-bold text-slate-900 mb-2 transition-colors",
           isLarge ? "text-xl md:text-2xl" : "text-lg"
         )}>
           {feature.title}
         </h3>
         <p className={cn(
-          "text-muted-foreground leading-relaxed",
+          "text-slate-700 leading-normal",
           isLarge ? "text-base" : "text-sm"
         )}>
           {feature.description}
@@ -141,18 +150,18 @@ function BentoCard({ feature, index }: { feature: Feature; index: number }) {
                 {[...Array(3)].map((_, i) => (
                   <div
                     key={i}
-                    className="w-8 h-8 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 border-2 border-background"
+                    className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-200 to-blue-100 border-2 border-white shadow-sm"
                   />
                 ))}
               </div>
-              <span className="text-xs text-muted-foreground">+3k profissionais usando</span>
+              <span className="text-xs text-slate-600 font-medium">+3k profissionais usando</span>
             </div>
           </div>
         )}
       </div>
 
       {/* Corner accent */}
-      <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-accent/10 to-transparent rounded-tl-full opacity-50" />
+      <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-blue-100/50 to-transparent rounded-tl-full opacity-60" />
     </div>
   );
 }
