@@ -1,5 +1,44 @@
-import { motion } from "framer-motion";
+import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useEffect, useRef } from "react";
+
+function CountUp({ 
+  value, 
+  prefix = "", 
+  suffix = "",
+  duration = 2,
+  className = ""
+}: { 
+  value: number; 
+  prefix?: string; 
+  suffix?: string;
+  duration?: number;
+  className?: string;
+}) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (latest) => {
+    if (value >= 1000) {
+      return Math.round(latest).toLocaleString('pt-BR');
+    }
+    return latest.toFixed(2).replace('.', ',');
+  });
+
+  useEffect(() => {
+    if (isInView) {
+      animate(count, value, { duration, ease: "easeOut" });
+    }
+  }, [isInView, value, duration, count]);
+
+  return (
+    <span ref={ref} className={className}>
+      {prefix}
+      <motion.span>{rounded}</motion.span>
+      {suffix}
+    </span>
+  );
+}
 
 const steps = [
   {
@@ -138,22 +177,31 @@ function ResultsMockup() {
       <div className="space-y-4">
         <div className="p-5 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border border-primary/20">
           <p className="text-xs text-gray-500 mb-1">Valor Estimado</p>
-          <p className="text-3xl font-bold text-primary">R$ 485.000</p>
+          <p className="text-3xl font-bold text-primary">
+            <CountUp value={485000} prefix="R$ " duration={2.5} />
+          </p>
           <div className="flex items-center gap-2 mt-2">
             <span className="text-xs px-2 py-0.5 bg-green-100 text-green-700 rounded-full font-medium">Confiança Alta</span>
           </div>
         </div>
         <div className="p-5 bg-gradient-to-br from-accent/10 to-accent/5 rounded-xl border border-accent/20">
           <p className="text-xs text-gray-500 mb-1">Valor do Aluguel</p>
-          <p className="text-3xl font-bold text-accent">R$ 2.800<span className="text-lg font-normal text-gray-500">/mês</span></p>
+          <p className="text-3xl font-bold text-accent">
+            <CountUp value={2800} prefix="R$ " duration={2} />
+            <span className="text-lg font-normal text-gray-500">/mês</span>
+          </p>
           <div className="flex items-center gap-2 mt-2">
-            <span className="text-xs px-2 py-0.5 bg-accent/20 text-accent rounded-full font-medium">Rentabilidade: 0,58%</span>
+            <span className="text-xs px-2 py-0.5 bg-accent/20 text-accent rounded-full font-medium">
+              Rentabilidade: <CountUp value={0.58} suffix="%" duration={1.5} />
+            </span>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-3">
           <div className="p-3 bg-gray-50 rounded-xl text-center">
             <p className="text-xs text-gray-500">Preço/m²</p>
-            <p className="text-lg font-bold text-gray-800">R$ 5.706</p>
+            <p className="text-lg font-bold text-gray-800">
+              <CountUp value={5706} prefix="R$ " duration={2} />
+            </p>
           </div>
           <div className="p-3 bg-gray-50 rounded-xl text-center">
             <p className="text-xs text-gray-500">Área</p>
