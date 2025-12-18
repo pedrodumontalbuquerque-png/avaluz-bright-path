@@ -25,7 +25,7 @@ export function VideoSection() {
   const [selectedVideo, setSelectedVideo] = useState<typeof videos[0] | null>(null);
   
   return (
-    <section className="py-20 md:py-28 bg-slate-50">
+    <section className="py-20 md:py-28 bg-[#0B1F33]">
       <div className="container max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -34,11 +34,11 @@ export function VideoSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-4">
             Veja como <span className="text-[#DF6009]">funciona</span>
           </h2>
-          <div className="w-16 h-1 bg-[#0A3F74] mx-auto rounded-full mb-6" />
-          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+          <div className="w-16 h-1 bg-[#DF6009] mx-auto rounded-full mb-6" />
+          <p className="text-slate-300 text-lg max-w-2xl mx-auto">
             Microvídeos de 2 minutos que mostram tudo que você precisa saber.
           </p>
         </motion.div>
@@ -68,10 +68,10 @@ export function VideoSection() {
                   </div>
                 </div>
                 <div className="mt-4 text-left">
-                  <h3 className="font-semibold text-slate-900 group-hover:text-[#0A3F74] transition-colors">
+                  <h3 className="font-semibold text-white group-hover:text-[#DF6009] transition-colors">
                     {video.title}
                   </h3>
-                  <p className="text-sm text-slate-600 mt-1">{video.description}</p>
+                  <p className="text-sm text-slate-400 mt-1">{video.description}</p>
                 </div>
               </button>
             </motion.div>
