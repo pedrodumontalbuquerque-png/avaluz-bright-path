@@ -1,10 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowRight, FileText, Play, Home, DollarSign, BarChart3, FileCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
 export function HeroSection() {
-  return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-hero-gradient">
+  return <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-hero-gradient">
       {/* Background Elements */}
       <div className="absolute inset-0">
         {/* Grid Pattern */}
@@ -18,19 +16,26 @@ export function HeroSection() {
       <div className="container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center lg:text-left"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.6
+        }} className="text-center lg:text-left">
             {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1, duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground text-sm font-medium mb-6 border border-primary-foreground/20"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            scale: 0.9
+          }} animate={{
+            opacity: 1,
+            scale: 1
+          }} transition={{
+            delay: 0.1,
+            duration: 0.4
+          }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground text-sm font-medium mb-6 border border-primary-foreground/20">
               <FileText className="w-4 h-4 text-accent" />
               <span>Relatórios em PDF + Estudo de Mercado (CMA) em minutos</span>
             </motion.div>
@@ -49,36 +54,35 @@ export function HeroSection() {
             </p>
 
             {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-            >
-              <Button 
-                size="lg" 
-                className="group text-base px-8 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold btn-glow-accent" 
-              >
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            delay: 0.3,
+            duration: 0.4
+          }} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Button size="lg" className="group text-base px-8 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold btn-glow-accent">
                 Criar conta e começar grátis
                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="text-base px-8 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:border-primary-foreground/50 transition-all duration-300 group"
-              >
+              <Button size="lg" variant="outline" className="text-base px-8 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:border-primary-foreground/50 transition-all duration-300 group">
                 <Play className="mr-2 w-5 h-5" />
                 Ver microvídeos do app
               </Button>
             </motion.div>
 
             {/* Social Proof */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.4 }}
-              className="mt-10 flex items-center gap-4 justify-center lg:justify-start"
-            >
+            <motion.div initial={{
+            opacity: 0
+          }} animate={{
+            opacity: 1
+          }} transition={{
+            delay: 0.5,
+            duration: 0.4
+          }} className="mt-10 flex items-center gap-4 justify-center lg:justify-start">
               {/* Stacked Avatars */}
               <div className="flex items-center">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 border-2 border-primary-dark overflow-hidden">
@@ -103,12 +107,16 @@ export function HeroSection() {
           </motion.div>
 
           {/* Dashboard Mockup */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="relative perspective-1000"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          x: 50
+        }} animate={{
+          opacity: 1,
+          x: 0
+        }} transition={{
+          delay: 0.2,
+          duration: 0.6
+        }} className="relative perspective-1000">
             {/* Main Dashboard Card */}
             <div className="relative z-10 float">
               <div className="glass-card rounded-2xl overflow-hidden border-primary-light/20">
@@ -153,15 +161,14 @@ export function HeroSection() {
                       <span className="text-sm font-medium text-primary-foreground">CMA: Comparativos por m²</span>
                     </div>
                     <div className="flex items-end gap-2 h-20">
-                      {[65, 85, 70, 95, 80, 90, 75].map((h, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{ height: 0 }}
-                          animate={{ height: `${h}%` }}
-                          transition={{ delay: 0.5 + i * 0.08, duration: 0.4 }}
-                          className={`flex-1 rounded-t ${i === 3 ? 'bg-accent' : 'bg-primary-light/60'}`}
-                        />
-                      ))}
+                      {[65, 85, 70, 95, 80, 90, 75].map((h, i) => <motion.div key={i} initial={{
+                      height: 0
+                    }} animate={{
+                      height: `${h}%`
+                    }} transition={{
+                      delay: 0.5 + i * 0.08,
+                      duration: 0.4
+                    }} className={`flex-1 rounded-t ${i === 3 ? 'bg-accent' : 'bg-primary-light/60'}`} />)}
                     </div>
                     <div className="flex justify-between text-xs text-primary-foreground/50 mt-2">
                       <span>R$ 5.200/m²</span>
@@ -182,44 +189,60 @@ export function HeroSection() {
               </div>
 
               {/* Floating Toast Cards */}
-              <motion.div
-                initial={{ opacity: 0, y: 20, x: -20 }}
-                animate={{ opacity: 1, y: 0, x: 0 }}
-                transition={{ delay: 1, duration: 0.4 }}
-                className="absolute -bottom-4 -left-4 glass-card rounded-xl p-3 border border-primary-light/20 float-delayed"
-              >
+              <motion.div initial={{
+              opacity: 0,
+              y: 20,
+              x: -20
+            }} animate={{
+              opacity: 1,
+              y: 0,
+              x: 0
+            }} transition={{
+              delay: 1,
+              duration: 0.4
+            }} className="absolute -bottom-4 -left-4 glass-card rounded-xl p-3 border border-primary-light/20 float-delayed">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
                     <span className="text-green-400 text-sm">✓</span>
                   </div>
                   <div>
-                    <p className="text-xs font-medium text-primary-foreground">Relatório pronto!</p>
-                    <p className="text-[10px] text-primary-foreground/50">Há 2 segundos</p>
+                    <p className="text-xs font-medium text-slate-950">Relatório pronto!</p>
+                    <p className="text-[10px] text-secondary-foreground">Há 2 segundos</p>
                   </div>
                 </div>
               </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: -20, x: 20 }}
-                animate={{ opacity: 1, y: 0, x: 0 }}
-                transition={{ delay: 1.2, duration: 0.4 }}
-                className="absolute -top-2 -right-2 glass-card rounded-xl px-3 py-2 border border-primary-light/20 float-slow"
-              >
+              <motion.div initial={{
+              opacity: 0,
+              y: -20,
+              x: 20
+            }} animate={{
+              opacity: 1,
+              y: 0,
+              x: 0
+            }} transition={{
+              delay: 1.2,
+              duration: 0.4
+            }} className="absolute -top-2 -right-2 glass-card rounded-xl px-3 py-2 border border-primary-light/20 float-slow">
                 <div className="flex items-center gap-2">
                   <BarChart3 className="w-4 h-4 text-accent" />
-                  <span className="text-xs font-medium text-primary-foreground">CMA atualizado</span>
+                  <span className="text-xs font-medium text-secondary-foreground">CMA atualizado</span>
                 </div>
               </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.4, duration: 0.4 }}
-                className="absolute top-1/2 -right-6 glass-card rounded-xl px-3 py-2 border border-primary-light/20 float"
-              >
+              <motion.div initial={{
+              opacity: 0,
+              x: 30
+            }} animate={{
+              opacity: 1,
+              x: 0
+            }} transition={{
+              delay: 1.4,
+              duration: 0.4
+            }} className="absolute top-1/2 -right-6 glass-card rounded-xl px-3 py-2 border border-primary-light/20 float">
                 <div className="flex items-center gap-2">
                   <FileText className="w-4 h-4 text-primary-light" />
-                  <span className="text-xs font-medium text-primary-foreground">PDF exportado</span>
+                  <span className="text-xs font-medium text-secondary-foreground">PDF exportado</span>
                 </div>
               </motion.div>
             </div>
@@ -229,6 +252,5 @@ export function HeroSection() {
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
