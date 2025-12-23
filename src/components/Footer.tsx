@@ -128,7 +128,7 @@ export function Footer() {
             <img 
               src={garantiaImg} 
               alt="90 dias de garantia" 
-              className="w-28 h-28 object-contain" 
+              className="w-[168px] h-[168px] object-contain" 
             />
           </div>
         </div>
