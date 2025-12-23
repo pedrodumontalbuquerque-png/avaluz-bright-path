@@ -2,37 +2,66 @@ import { Facebook, Instagram, Linkedin, Twitter, Shield, Lock } from "lucide-rea
 import { Link } from "react-router-dom";
 import avaluzLogo from "@/assets/avaluz-logo.png";
 import garantiaImg from "@/assets/garantia-90-dias.png";
-
 const footerLinks = {
-  produto: [
-    { label: "Como Funciona", href: "#como-funciona" },
-    { label: "Benefícios", href: "#beneficios" },
-    { label: "Planos", href: "#planos" },
-    { label: "FAQ", href: "#faq" },
-  ],
-  empresa: [
-    { label: "Sobre Nós", href: "#" },
-    { label: "Blog", href: "#" },
-    { label: "Contato", href: "#" },
-    { label: "Suporte", href: "#" },
-  ],
-  legal: [
-    { label: "Termos de Uso", href: "/termos", isRoute: true },
-    { label: "Privacidade", href: "/privacidade", isRoute: true },
-    { label: "LGPD", href: "/privacidade", isRoute: true },
-  ],
+  produto: [{
+    label: "Como Funciona",
+    href: "#como-funciona"
+  }, {
+    label: "Benefícios",
+    href: "#beneficios"
+  }, {
+    label: "Planos",
+    href: "#planos"
+  }, {
+    label: "FAQ",
+    href: "#faq"
+  }],
+  empresa: [{
+    label: "Sobre Nós",
+    href: "#"
+  }, {
+    label: "Blog",
+    href: "#"
+  }, {
+    label: "Contato",
+    href: "#"
+  }, {
+    label: "Suporte",
+    href: "#"
+  }],
+  legal: [{
+    label: "Termos de Uso",
+    href: "/termos",
+    isRoute: true
+  }, {
+    label: "Privacidade",
+    href: "/privacidade",
+    isRoute: true
+  }, {
+    label: "LGPD",
+    href: "/privacidade",
+    isRoute: true
+  }]
 };
-
-const socialLinks = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-];
-
+const socialLinks = [{
+  icon: Facebook,
+  href: "#",
+  label: "Facebook"
+}, {
+  icon: Instagram,
+  href: "#",
+  label: "Instagram"
+}, {
+  icon: Linkedin,
+  href: "#",
+  label: "LinkedIn"
+}, {
+  icon: Twitter,
+  href: "#",
+  label: "Twitter"
+}];
 export function Footer() {
-  return (
-    <footer className="bg-primary-dark text-primary-foreground relative overflow-hidden">
+  return <footer className="bg-primary-dark text-primary-foreground relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-10" />
 
@@ -41,11 +70,7 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-4 lg:col-span-2 mb-8 lg:mb-0">
             <a href="#" className="flex items-center mb-4 group">
-              <img 
-                src={avaluzLogo} 
-                alt="AvaLuz" 
-                className="h-10 w-auto object-contain brightness-0 invert transition-all duration-300 group-hover:opacity-80"
-              />
+              <img src={avaluzLogo} alt="AvaLuz" className="h-10 w-auto object-contain brightness-0 invert transition-all duration-300 group-hover:opacity-80" />
             </a>
             <p className="text-primary-foreground/60 text-sm leading-relaxed max-w-xs mb-2">
               A Luz do Mercado Imobiliário.
@@ -56,16 +81,9 @@ export function Footer() {
             
             {/* Social Links */}
             <div className="flex gap-3 mt-6">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center hover:bg-accent/20 hover:text-accent transition-all duration-300 group border border-primary-foreground/10"
-                >
+              {socialLinks.map(social => <a key={social.label} href={social.href} aria-label={social.label} className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center hover:bg-accent/20 hover:text-accent transition-all duration-300 group border border-primary-foreground/10">
                   <social.icon className="w-5 h-5" />
-                </a>
-              ))}
+                </a>)}
             </div>
           </div>
 
@@ -73,74 +91,46 @@ export function Footer() {
           <div>
             <h4 className="font-heading font-semibold mb-4 text-primary-foreground">Produto</h4>
             <ul className="space-y-3">
-              {footerLinks.produto.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-primary-foreground/60 hover:text-accent transition-colors"
-                  >
+              {footerLinks.produto.map(link => <li key={link.label}>
+                  <a href={link.href} className="text-sm text-primary-foreground/60 hover:text-accent transition-colors">
                     {link.label}
                   </a>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
           <div>
             <h4 className="font-heading font-semibold mb-4 text-primary-foreground">Empresa</h4>
             <ul className="space-y-3">
-              {footerLinks.empresa.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-primary-foreground/60 hover:text-accent transition-colors"
-                  >
+              {footerLinks.empresa.map(link => <li key={link.label}>
+                  <a href={link.href} className="text-sm text-primary-foreground/60 hover:text-accent transition-colors">
                     {link.label}
                   </a>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
           <div>
             <h4 className="font-heading font-semibold mb-4 text-primary-foreground">Legal</h4>
             <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.label}>
-                  {link.isRoute ? (
-                    <Link
-                      to={link.href}
-                      className="text-sm text-primary-foreground/60 hover:text-accent transition-colors"
-                    >
+              {footerLinks.legal.map(link => <li key={link.label}>
+                  {link.isRoute ? <Link to={link.href} className="text-sm text-primary-foreground/60 hover:text-accent transition-colors">
                       {link.label}
-                    </Link>
-                  ) : (
-                    <a
-                      href={link.href}
-                      className="text-sm text-primary-foreground/60 hover:text-accent transition-colors"
-                    >
+                    </Link> : <a href={link.href} className="text-sm text-primary-foreground/60 hover:text-accent transition-colors">
                       {link.label}
-                    </a>
-                  )}
-                </li>
-              ))}
+                    </a>}
+                </li>)}
             </ul>
           </div>
 
           {/* Garantia 90 dias */}
           <div className="col-span-2 md:col-span-1">
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <img 
-                src={garantiaImg} 
-                alt="90 dias de garantia" 
-                className="w-20 h-20 object-contain mb-3"
-              />
+              <img src={garantiaImg} alt="90 dias de garantia" className="w-20 h-20 object-contain mb-3" />
               <h4 className="font-heading font-semibold text-primary-foreground text-sm mb-1">
                 90 dias de garantia
               </h4>
-              <p className="text-xs text-primary-foreground/50 leading-relaxed">
-                Teste a AvaLuz por 90 dias. Se não fizer sentido para você, pode cancelar.
-              </p>
+              
             </div>
           </div>
         </div>
@@ -178,6 +168,5 @@ export function Footer() {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 }
