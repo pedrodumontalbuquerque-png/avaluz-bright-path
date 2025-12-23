@@ -70,7 +70,7 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-4 lg:col-span-2 mb-8 lg:mb-0">
             <a href="#" className="flex items-center mb-4 group">
-              <img src={avaluzLogo} alt="AvaLuz" className="h-12 w-auto object-contain brightness-0 invert transition-all duration-300 group-hover:opacity-80" />
+              <img src={avaluzLogo} alt="AvaLuz" className="h-[60px] w-auto object-contain brightness-0 invert transition-all duration-300 group-hover:opacity-80" />
             </a>
             <p className="text-primary-foreground/60 text-sm leading-relaxed max-w-xs mb-2">
               A Luz do Mercado Imobiliário.
