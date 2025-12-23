@@ -156,16 +156,7 @@ export function Footer() {
           </p>
           
           {/* Security Badges */}
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2 text-primary-foreground/50 hover:text-accent transition-colors">
-              <Shield className="w-4 h-4" />
-              <span className="text-xs">SSL Seguro</span>
-            </div>
-            <div className="flex items-center gap-2 text-primary-foreground/50 hover:text-accent transition-colors">
-              <Lock className="w-4 h-4" />
-              <span className="text-xs">LGPD Compliant</span>
-            </div>
-          </div>
+          
         </div>
       </div>
     </footer>;
