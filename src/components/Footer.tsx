@@ -124,14 +124,12 @@ export function Footer() {
           </div>
 
           {/* Garantia 90 dias */}
-          <div className="col-span-2 md:col-span-1">
-            <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <img src={garantiaImg} alt="90 dias de garantia" className="w-20 h-20 object-contain mb-3" />
-              <h4 className="font-heading font-semibold text-primary-foreground text-sm mb-1">
-                90 dias de garantia
-              </h4>
-              
-            </div>
+          <div className="col-span-2 md:col-span-1 flex justify-center md:justify-end items-start">
+            <img 
+              src={garantiaImg} 
+              alt="90 dias de garantia" 
+              className="w-28 h-28 object-contain" 
+            />
           </div>
         </div>
       </div>
