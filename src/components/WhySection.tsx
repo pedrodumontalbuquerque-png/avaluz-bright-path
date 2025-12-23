@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { HelpCircle, ShieldCheck, Clock, AlertTriangle, CheckCircle2, FileText } from "lucide-react";
+import { HelpCircle, ShieldCheck, Clock, CheckCircle2, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const questions = [
@@ -26,14 +26,6 @@ const questions = [
     question: "Vou perder tempo aprendendo?",
     title: "Sem curva de aprendizado. Use agora.",
     answer: "Interface intuitiva: preenche, clica e pronto. Seu primeiro PDF sai em menos de 5 minutos.",
-    checks: ["Gera confiança na visita", "Economiza tempo no dia a dia"],
-  },
-  {
-    id: 4,
-    icon: AlertTriangle,
-    question: "E se eu errar o preço?",
-    title: "Pare de chutar. Mostre dados.",
-    answer: "Com o estudo de mercado (CMA), você apresenta o valor embasado. O cliente confia mais e negocia melhor.",
     checks: ["Gera confiança na visita", "Economiza tempo no dia a dia"],
   },
 ];

@@ -19,7 +19,7 @@ export function CTASection() {
           className="max-w-3xl mx-auto text-center"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-6 leading-tight">
-            Pronto para fechar mais vendas com <span className="text-accent">credibilidade</span>?
+            Pronto para ter avaliações na <span className="text-accent">velocidade da luz</span>?
           </h2>
 
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto">

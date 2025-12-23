@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Home, DollarSign, BarChart3, FileText, Clock } from "lucide-react";
+import { FileText, Zap, MessageSquare, History, BarChart3 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Feature {
@@ -13,42 +13,42 @@ interface Feature {
 
 const features: Feature[] = [
   {
-    icon: Home,
+    icon: BarChart3,
     badge: "Core",
-    title: "Avaliação Automatizada do Imóvel",
-    description: "Valor de mercado calculado com dados reais da região. IA cruza comparativos e entrega o preço justo em segundos, sem achismo.",
+    title: "Estudo de Mercado Personalizado",
+    description: "Relatório completo com análise da região, comparativos por m² e faixa de valor. Tudo adaptado ao imóvel e ao contexto do seu cliente.",
     className: "md:col-span-4 md:row-span-2",
     animation: "bento-float",
-  },
-  {
-    icon: DollarSign,
-    badge: "Aluguel",
-    title: "Valor de Aluguel",
-    description: "Estimativa mensal de aluguel baseada em comparativos da região. Ideal para proprietários e investidores.",
-    className: "md:col-span-2 md:row-span-1",
-    animation: "bento-pulse",
-  },
-  {
-    icon: BarChart3,
-    badge: "Dados",
-    title: "CMA / Comparativos",
-    description: "Preço por m², faixa de valor e imóveis similares. Mostre números reais e ganhe autoridade na negociação.",
-    className: "md:col-span-2 md:row-span-1",
-    animation: "bento-tilt",
   },
   {
     icon: FileText,
     badge: "Entrega",
     title: "PDF Profissional Personalizado",
-    description: "Relatório completo com dados, fotos e resumo. Compartilhe com o cliente e aumente sua credibilidade.",
+    description: "Relatório pronto para enviar ao cliente, com dados, gráficos e sua marca em destaque.",
+    className: "md:col-span-2 md:row-span-1",
+    animation: "bento-pulse",
+  },
+  {
+    icon: Zap,
+    badge: "Velocidade",
+    title: "Avaliação em Segundos",
+    description: "Valor estimado do imóvel calculado em poucos segundos, sem perder tempo com planilhas.",
+    className: "md:col-span-2 md:row-span-1",
+    animation: "bento-tilt",
+  },
+  {
+    icon: MessageSquare,
+    badge: "Assistente",
+    title: "Bate-papo com IA Especializada",
+    description: "Converse com a Ava, uma IA treinada em avaliação imobiliária, para tirar dúvidas e refinar sua análise.",
     className: "md:col-span-3 md:row-span-1",
     animation: "bento-drift",
   },
   {
-    icon: Clock,
+    icon: History,
     badge: "Controle",
     title: "Histórico de Avaliações",
-    description: "Acesse todas as suas avaliações anteriores. Acompanhe evolução de preços e compare períodos.",
+    description: "Acompanhe todas as avaliações que já fez e a evolução de preços ao longo do tempo.",
     className: "md:col-span-3 md:row-span-1",
     animation: "bento-glow",
   },
