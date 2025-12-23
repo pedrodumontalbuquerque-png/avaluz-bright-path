@@ -1,6 +1,7 @@
 import { Facebook, Instagram, Linkedin, Twitter, Shield, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 import avaluzLogo from "@/assets/avaluz-logo.png";
+import garantiaImg from "@/assets/garantia-90-dias.png";
 
 const footerLinks = {
   produto: [
@@ -36,9 +37,9 @@ export function Footer() {
       <div className="absolute inset-0 bg-grid-pattern opacity-10" />
 
       <div className="container py-16 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 lg:gap-12">
           {/* Brand */}
-          <div className="col-span-2 md:col-span-4 lg:col-span-1 mb-8 lg:mb-0">
+          <div className="col-span-2 md:col-span-4 lg:col-span-2 mb-8 lg:mb-0">
             <a href="#" className="flex items-center mb-4 group">
               <img 
                 src={avaluzLogo} 
@@ -50,7 +51,7 @@ export function Footer() {
               A Luz do Mercado Imobiliário.
             </p>
             <p className="text-primary-foreground/50 text-sm leading-relaxed max-w-xs">
-              Avaliações imobiliárias com dados reais para corretores que querem fechar mais vendas.
+              Avaliações imobiliárias com dados reais, na velocidade da luz, para corretores que querem fechar mais vendas.
             </p>
             
             {/* Social Links */}
@@ -124,6 +125,23 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* Garantia 90 dias */}
+          <div className="col-span-2 md:col-span-1">
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+              <img 
+                src={garantiaImg} 
+                alt="90 dias de garantia" 
+                className="w-20 h-20 object-contain mb-3"
+              />
+              <h4 className="font-heading font-semibold text-primary-foreground text-sm mb-1">
+                90 dias de garantia
+              </h4>
+              <p className="text-xs text-primary-foreground/50 leading-relaxed">
+                Teste a AvaLuz por 90 dias. Se não fizer sentido para você, pode cancelar.
+              </p>
+            </div>
           </div>
         </div>
       </div>

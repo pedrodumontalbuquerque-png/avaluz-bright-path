@@ -23,15 +23,19 @@ const faqs = [
   },
   {
     question: "O que é crédito?",
-    answer: "1 crédito = 1 avaliação completa de imóvel. Cada vez que você gera uma avaliação, usa 1 crédito. Escolha o plano com a quantidade ideal para você."
+    answer: "1 crédito = 1 avaliação completa de imóvel ou 1 busca no chat AVA. Cada vez que você gera uma avaliação ou conversa com a IA, usa 1 crédito. Escolha o plano com a quantidade ideal para você."
   },
   {
     question: "Posso cancelar quando quiser?",
-    answer: "Sim! Sem multas ou burocracia. Você pode cancelar pelo próprio painel a qualquer momento. Seus créditos ficam válidos até o fim do período pago."
+    answer: "Sim. Você pode cancelar quando quiser, e ainda conta com 90 dias de garantia para testar a plataforma. Sem multas ou burocracia."
   },
   {
     question: "Meus dados ficam seguros?",
     answer: "Absolutamente. Usamos criptografia de ponta e seguimos as melhores práticas de segurança. Seus dados nunca são compartilhados sem sua autorização."
+  },
+  {
+    question: "Como a AvaLuz usa meus dados?",
+    answer: "Seguimos a LGPD. Seus dados e os dados dos imóveis são usados apenas para análises, relatórios e melhoria da plataforma, sempre com segurança e consentimento. Você pode solicitar revisão ou exclusão a qualquer momento."
   }
 ];
 

@@ -1,88 +1,70 @@
 import { motion } from "framer-motion";
-import { Play, Clock } from "lucide-react";
+import { Play } from "lucide-react";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-const videos = [{
-  id: 1,
-  title: "Parte 01: Inserindo dados",
-  description: "Veja como é rápido cadastrar um imóvel",
-  duration: "1:30",
-  thumbnail: null // Placeholder
-}, {
-  id: 2,
-  title: "Parte 02: Comparativos (CMA)",
-  description: "Entenda como funciona a análise de mercado",
-  duration: "2:15",
-  thumbnail: null
-}, {
-  id: 3,
-  title: "Parte 03: PDF pronto para enviar",
-  description: "Veja o relatório profissional que você recebe",
-  duration: "1:45",
-  thumbnail: null
-}];
+
 export function VideoSection() {
-  const [selectedVideo, setSelectedVideo] = useState<typeof videos[0] | null>(null);
-  
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
   return (
-    <section className="py-20 md:py-28 bg-[#0B1F33]">
-      <div className="container max-w-6xl">
+    <section id="videos" className="py-20 md:py-28 bg-[#0B1F33]">
+      <div className="container max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-4">
             Veja como <span className="text-[#DF6009]">funciona</span>
           </h2>
           <div className="w-16 h-1 bg-[#DF6009] mx-auto rounded-full mb-6" />
           <p className="text-slate-300 text-lg max-w-2xl mx-auto">
-            Microvídeos de 2 minutos que mostram tudo que você precisa saber.
+            Assista ao Henrique explicando a AvaLuz na prática.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {videos.map((video, index) => (
-            <motion.div
-              key={video.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.4 }}
-            >
-              <button
-                onClick={() => setSelectedVideo(video)}
-                className="w-full group"
-              >
-                <div className="relative aspect-video bg-gradient-to-br from-[#0A3F74] to-[#0B1F33] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Play className="w-7 h-7 text-white fill-white ml-1" />
-                    </div>
-                  </div>
-                  <div className="absolute bottom-3 right-3 flex items-center gap-1.5 bg-black/50 backdrop-blur-sm px-2 py-1 rounded-md">
-                    <Clock className="w-3 h-3 text-white" />
-                    <span className="text-xs text-white">{video.duration}</span>
-                  </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1, duration: 0.5 }}
+        >
+          <button
+            onClick={() => setIsVideoOpen(true)}
+            className="w-full group"
+          >
+            <div className="relative aspect-video bg-gradient-to-br from-[#0A3F74] to-[#0B1F33] rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 border border-white/10">
+              {/* Thumbnail Placeholder */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0A3F74]/80 via-[#0B1F33] to-[#0A3F74]/60" />
+              
+              {/* Decorative Elements */}
+              <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+              <div className="absolute top-10 left-10 w-32 h-32 bg-[#DF6009]/20 rounded-full blur-3xl" />
+              <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#0A3F74]/40 rounded-full blur-3xl" />
+              
+              {/* Play Button */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 group-hover:bg-white/30 transition-all duration-300 border border-white/20">
+                  <Play className="w-8 h-8 md:w-10 md:h-10 text-white fill-white ml-1" />
                 </div>
-                <div className="mt-4 text-left">
-                  <h3 className="font-semibold text-white group-hover:text-[#DF6009] transition-colors">
-                    {video.title}
-                  </h3>
-                  <p className="text-sm text-slate-400 mt-1">{video.description}</p>
-                </div>
-              </button>
-            </motion.div>
-          ))}
-        </div>
+              </div>
+
+              {/* Text Overlay */}
+              <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 text-left">
+                <span className="text-xs uppercase tracking-wider text-white/60 font-medium">Demonstração</span>
+                <h3 className="text-lg md:text-xl font-semibold text-white mt-1">AvaLuz na prática</h3>
+              </div>
+            </div>
+          </button>
+        </motion.div>
       </div>
 
-      <Dialog open={!!selectedVideo} onOpenChange={() => setSelectedVideo(null)}>
-        <DialogContent className="max-w-3xl">
+      <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
+        <DialogContent className="max-w-4xl">
           <DialogHeader>
-            <DialogTitle>{selectedVideo?.title}</DialogTitle>
+            <DialogTitle>AvaLuz na prática</DialogTitle>
           </DialogHeader>
           <div className="aspect-video bg-slate-900 rounded-lg flex items-center justify-center">
             <p className="text-slate-400">Vídeo em breve</p>

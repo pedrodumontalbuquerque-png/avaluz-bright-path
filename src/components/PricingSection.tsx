@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, Sparkles, Info, HelpCircle } from "lucide-react";
+import { Check, Sparkles, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Tooltip,
@@ -24,25 +24,6 @@ const plans = [
     stripePlan: "free",
   },
   {
-    name: "Proprietário",
-    price: "R$ 29,90",
-    period: "/mês",
-    credits: "10 créditos mensais",
-    description: "Para donos de imóveis",
-    features: [
-      { text: "Valor do imóvel + aluguel", available: true },
-      { text: "Projeção/valorização (6 meses / 1 ano)", available: true, comingSoon: true },
-      { text: "Histórico de avaliações", available: true, comingSoon: true },
-      { text: "Suporte por email", available: true },
-      { text: "Noticiário mensal do mercado", available: true, comingSoon: true },
-    ],
-    cta: "Quero ser avisado",
-    variant: "outline" as const,
-    popular: false,
-    stripePlan: "proprietario",
-    future: true,
-  },
-  {
     name: "Profissional",
     price: "R$ 97",
     period: "/mês",
@@ -50,12 +31,12 @@ const plans = [
     description: "Para corretores ativos",
     features: [
       { text: "Valor do imóvel + aluguel", available: true },
+      { text: "Estudo de mercado + PDF profissional", available: true },
       { text: "Bate-papo sobre imóvel com IA", available: true },
       { text: "Projeção/valorização", available: true },
       { text: "Histórico + suporte prioritário", available: true },
       { text: "Noticiário + grupo de network", available: true },
       { text: "Leitura de imagem na avaliação", available: true, comingSoon: true },
-      { text: "Estudo de mercado com sua foto", available: true, comingSoon: true },
     ],
     cta: "Assinar Profissional",
     variant: "default" as const,
@@ -63,16 +44,34 @@ const plans = [
     stripePlan: "profissional",
   },
   {
+    name: "Broker",
+    price: "R$ 497,90",
+    period: "/mês",
+    credits: "500 créditos mensais",
+    description: "Para donos de imobiliária com time pequeno",
+    features: [
+      { text: "Até 8 pessoas", available: true },
+      { text: "Fluxo de avaliações dos corretores", available: true },
+      { text: "Funil de vendas do time", available: true },
+      { text: "Valor do imóvel + aluguel", available: true },
+      { text: "Bate-papo com IA especializada", available: true },
+      { text: "Histórico + suporte individualizado", available: true },
+    ],
+    cta: "Assinar Broker",
+    variant: "outline" as const,
+    popular: false,
+    stripePlan: "broker",
+  },
+  {
     name: "Imobiliária",
-    price: "Sob consulta",
-    period: "",
+    price: "R$ 997",
+    period: "/mês",
     credits: "Até 1.200 créditos",
     description: "Para equipes de até 15 pessoas",
     features: [
-      { text: "Tudo do Profissional", available: true },
+      { text: "Tudo do Broker", available: true },
       { text: "Usuário avulso: R$ 47,90", available: true },
-      { text: "Fluxo de avaliações do time", available: true },
-      { text: "Funil de vendas integrado", available: true },
+      { text: "Estudo de mercado + PDF profissional", available: true },
       { text: "Painel de captações diárias", available: true },
       { text: "Suporte individualizado", available: true },
     ],
@@ -108,9 +107,15 @@ export function PricingSection() {
           </p>
           
           {/* Credit explanation */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-            <Info className="w-4 h-4" />
-            1 crédito = 1 avaliação completa
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
+              <Info className="w-4 h-4" />
+              1 crédito = 1 avaliação completa
+            </div>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium">
+              <Info className="w-4 h-4" />
+              1 crédito = 1 busca no chat AVA
+            </div>
           </div>
         </motion.div>
 
@@ -129,13 +134,6 @@ export function PricingSection() {
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10 px-4 py-1.5 bg-accent rounded-full flex items-center gap-1.5 shadow-lg">
                   <Sparkles className="w-4 h-4 text-accent-foreground" />
                   <span className="text-sm font-semibold text-accent-foreground">Mais Popular</span>
-                </div>
-              )}
-
-              {/* Future Badge */}
-              {plan.future && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10 px-4 py-1.5 bg-muted rounded-full flex items-center gap-1.5 shadow-lg border border-border">
-                  <span className="text-sm font-semibold text-muted-foreground">Em breve</span>
                 </div>
               )}
 
@@ -209,7 +207,7 @@ export function PricingSection() {
                     className={`w-full ${
                       plan.popular 
                         ? "bg-accent hover:bg-accent/90 text-accent-foreground font-semibold btn-glow-accent border-0" 
-                        : plan.name === "Imobiliária"
+                        : plan.name === "Imobiliária" || plan.name === "Broker"
                           ? "hover:bg-primary/10 hover:text-primary hover:border-primary"
                           : ""
                     } transition-all duration-300`}
