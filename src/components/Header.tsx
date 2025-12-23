@@ -39,7 +39,7 @@ export function Header() {
             <img 
               src={avaluzLogo} 
               alt="AvaLuz - A Luz do Mercado Imobiliário" 
-              className="h-11 md:h-12 w-auto object-contain brightness-0 invert transition-all duration-300 group-hover:opacity-80"
+              className="h-[52px] md:h-[58px] w-auto object-contain brightness-0 invert transition-all duration-300 group-hover:opacity-80"
             />
           </a>
 
