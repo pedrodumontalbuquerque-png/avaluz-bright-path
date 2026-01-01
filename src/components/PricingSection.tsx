@@ -213,8 +213,9 @@ export function PricingSection() {
                     } transition-all duration-300`}
                     size="lg"
                     data-stripe-plan={plan.stripePlan}
+                    asChild
                   >
-                    {plan.cta}
+                    <a href="https://avaluz.app/auth/signin">{plan.cta}</a>
                   </Button>
                 </div>
               </div>

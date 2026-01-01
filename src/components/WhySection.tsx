@@ -160,8 +160,8 @@ export function WhySection() {
                         </div>
                       ))}
                     </div>
-                    <Button className="bg-[#0A3F74] hover:bg-[#0A3F74]/90 text-white">
-                      Começar grátis
+                    <Button className="bg-[#0A3F74] hover:bg-[#0A3F74]/90 text-white" asChild>
+                      <a href="https://avaluz.app/auth/signin">Começar grátis</a>
                     </Button>
                   </div>
                 </motion.div>

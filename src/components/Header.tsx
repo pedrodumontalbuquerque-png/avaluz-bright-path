@@ -63,14 +63,16 @@ export function Header() {
               variant="ghost" 
               size="sm"
               className="text-primary-foreground/70 hover:text-primary-foreground hover:bg-primary-foreground/10"
+              asChild
             >
-              Login
+              <a href="https://avaluz.app/auth/signin">Login</a>
             </Button>
             <Button 
               size="sm"
               className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold btn-glow-accent"
+              asChild
             >
-              Criar conta
+              <a href="https://avaluz.app/auth/signin">Criar conta</a>
             </Button>
           </div>
 
@@ -118,11 +120,12 @@ export function Header() {
                 <Button 
                   variant="ghost" 
                   className="justify-start text-primary-foreground/70 hover:text-primary-foreground"
+                  asChild
                 >
-                  Login
+                  <a href="https://avaluz.app/auth/signin">Login</a>
                 </Button>
-                <Button className="justify-start bg-accent hover:bg-accent/90 text-accent-foreground">
-                  Criar conta
+                <Button className="justify-start bg-accent hover:bg-accent/90 text-accent-foreground" asChild>
+                  <a href="https://avaluz.app/auth/signin">Criar conta</a>
                 </Button>
               </div>
             </nav>
