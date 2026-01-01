@@ -64,9 +64,11 @@ export function HeroSection() {
             delay: 0.3,
             duration: 0.4
           }} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button size="lg" className="group text-base px-8 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold btn-glow-accent">
-                Criar conta e começar grátis
-                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+              <Button size="lg" className="group text-base px-8 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold btn-glow-accent" asChild>
+                <a href="https://avaluz.app/auth/signin">
+                  Criar conta e começar grátis
+                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </a>
               </Button>
               <Button size="lg" variant="outline" className="text-base px-8 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:border-primary-foreground/50 transition-all duration-300 group">
                 <Play className="mr-2 w-5 h-5" />

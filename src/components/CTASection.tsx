@@ -35,9 +35,12 @@ export function CTASection() {
             <Button
               size="lg"
               className="bg-accent hover:bg-accent/90 text-accent-foreground text-base px-10 py-6 h-auto group shadow-2xl btn-glow-accent font-semibold"
+              asChild
             >
-              Criar conta e começar grátis
-              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+              <a href="https://avaluz.app/auth/signin">
+                Criar conta e começar grátis
+                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </a>
             </Button>
           </motion.div>
 
