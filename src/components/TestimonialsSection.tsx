@@ -10,7 +10,6 @@ const testimonials = [
     city: "São Paulo, SP",
     content: "Antes eu perdia tempo pesquisando preços. Agora chego na visita já com o relatório pronto. Os clientes ficam impressionados.",
     result: "Fechando mais negócios",
-    avatar: null,
   },
   {
     id: 2,
@@ -19,7 +18,6 @@ const testimonials = [
     city: "Rio de Janeiro, RJ",
     content: "O PDF profissional faz toda diferença. Transmite credibilidade e o cliente leva a sério minha avaliação.",
     result: "Mais credibilidade",
-    avatar: null,
   },
   {
     id: 3,
@@ -28,7 +26,6 @@ const testimonials = [
     city: "Belo Horizonte, MG",
     content: "Adotamos para toda a equipe. Padronizou as avaliações e aumentou nossa produtividade.",
     result: "Equipe mais produtiva",
-    avatar: null,
   },
   {
     id: 4,
@@ -37,7 +34,6 @@ const testimonials = [
     city: "Curitiba, PR",
     content: "O CMA com comparativos reais convence até os clientes mais exigentes. Ferramenta indispensável.",
     result: "Clientes convencidos",
-    avatar: null,
   },
   {
     id: 5,
@@ -46,7 +42,6 @@ const testimonials = [
     city: "Porto Alegre, RS",
     content: "Simples de usar e resultado profissional. Em minutos tenho tudo que preciso para a apresentação.",
     result: "Praticidade",
-    avatar: null,
   },
 ];
 
@@ -79,11 +74,10 @@ export function TestimonialsSection() {
   }, [isPaused]);
 
   return (
-    <section className="py-20 md:py-28 bg-primary-dark relative overflow-hidden">
-      {/* Background */}
+    <section className="py-16 sm:py-20 md:py-28 bg-primary-dark relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-20" />
 
-      <div className="container relative z-10 mb-12">
+      <div className="container relative z-10 mb-8 sm:mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -91,57 +85,51 @@ export function TestimonialsSection() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-3 sm:mb-4">
             O que dizem os <span className="text-accent">corretores</span>
           </h2>
-          <div className="w-20 h-1 bg-accent mx-auto rounded-full mb-6" />
-          <p className="text-lg text-primary-foreground/70 max-w-2xl mx-auto">
+          <div className="w-16 sm:w-20 h-1 bg-accent mx-auto rounded-full mb-4 sm:mb-6" />
+          <p className="text-base sm:text-lg text-primary-foreground/70 max-w-2xl mx-auto px-4">
             Profissionais que já estão usando AvaLuz no dia a dia
           </p>
         </motion.div>
       </div>
 
-      {/* Carousel */}
       <div 
         ref={scrollRef}
-        className="flex gap-6 overflow-x-hidden cursor-grab"
+        className="flex gap-4 sm:gap-6 overflow-x-hidden cursor-grab px-4"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        {/* Duplicate testimonials for infinite scroll */}
         {[...testimonials, ...testimonials].map((testimonial, index) => (
           <motion.div
             key={`${testimonial.id}-${index}`}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="flex-shrink-0 w-[350px] md:w-[400px]"
+            className="flex-shrink-0 w-[280px] sm:w-[350px] md:w-[400px]"
           >
-            <div className="h-full bg-card/10 backdrop-blur-sm rounded-2xl p-6 border border-primary-light/10 hover:border-primary-light/30 transition-all duration-300">
-              {/* Quote Icon */}
-              <Quote className="w-8 h-8 text-accent/50 mb-4" />
+            <div className="h-full bg-card/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-primary-light/10 hover:border-primary-light/30 transition-all duration-300">
+              <Quote className="w-6 h-6 sm:w-8 sm:h-8 text-accent/50 mb-3 sm:mb-4" />
               
-              {/* Content */}
-              <p className="text-primary-foreground/80 leading-relaxed mb-6">
+              <p className="text-primary-foreground/80 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
                 "{testimonial.content}"
               </p>
 
-              {/* Result Badge */}
-              <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-accent/20 text-accent text-sm font-medium mb-6">
+              <div className="inline-flex items-center gap-1 px-2.5 sm:px-3 py-1 rounded-full bg-accent/20 text-accent text-xs sm:text-sm font-medium mb-4 sm:mb-6">
                 <Star className="w-3 h-3" fill="currentColor" />
                 {testimonial.result}
               </div>
 
-              {/* Author */}
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/40 to-primary-light/40 flex items-center justify-center">
-                  <span className="text-lg font-semibold text-primary-foreground">
+              <div className="flex items-center gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-primary/40 to-primary-light/40 flex items-center justify-center flex-shrink-0">
+                  <span className="text-base sm:text-lg font-semibold text-primary-foreground">
                     {testimonial.name.charAt(0)}
                   </span>
                 </div>
-                <div>
-                  <p className="font-semibold text-primary-foreground">{testimonial.name}</p>
-                  <p className="text-sm text-primary-foreground/60">
+                <div className="min-w-0">
+                  <p className="font-semibold text-primary-foreground text-sm sm:text-base truncate">{testimonial.name}</p>
+                  <p className="text-xs sm:text-sm text-primary-foreground/60 truncate">
                     {testimonial.role} • {testimonial.city}
                   </p>
                 </div>
@@ -151,9 +139,8 @@ export function TestimonialsSection() {
         ))}
       </div>
 
-      {/* Note about testimonials */}
-      <div className="container mt-8">
-        <p className="text-center text-sm text-primary-foreground/40 italic">
+      <div className="container mt-6 sm:mt-8">
+        <p className="text-center text-xs sm:text-sm text-primary-foreground/40 italic">
           Depoimentos ilustrativos. Casos reais em produção.
         </p>
       </div>
