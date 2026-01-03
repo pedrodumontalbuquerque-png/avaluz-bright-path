@@ -7,41 +7,50 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const faqs = [
   {
-    question: "É difícil de usar?",
-    answer: "Não! AvaLuz foi feito para ser simples. Você preenche os dados do imóvel em poucos campos e recebe tudo pronto. Se souber usar WhatsApp, sabe usar AvaLuz."
+    question: "Como funciona a avaliação de imóvel na AvaLuz?",
+    answer: "Você cadastra os dados do imóvel (CEP, metragem, quartos, características) e em segundos recebe a avaliação com valor estimado, valor de aluguel, comparativos da região (CMA) e um PDF profissional pronto para enviar ao cliente."
   },
   {
-    question: "De onde vêm os comparativos do CMA?",
-    answer: "Analisamos dados reais de mercado da sua região: imóveis à venda, vendidos recentemente e tendências de preço por m². Tudo atualizado e verificado."
+    question: "O que é CMA (Análise Comparativa de Mercado) e como ajuda na venda?",
+    answer: "CMA é a Análise Comparativa de Mercado que cruza dados de imóveis similares vendidos e à venda na região. Mostra preço por m², faixa de valor e tendências. Com esses dados, você justifica o preço ao cliente com credibilidade e fecha mais vendas."
   },
   {
-    question: "O PDF sai pronto mesmo?",
-    answer: "Sim! Em poucos minutos você recebe um PDF profissional com logo, dados do imóvel, valor estimado, comparativos e análise de mercado. Pronto para enviar ao cliente."
+    question: "Como gerar relatório de avaliação imobiliária em PDF?",
+    answer: "Após a avaliação, a AvaLuz gera automaticamente um PDF profissional com logo, dados do imóvel, valor estimado, valor de aluguel, comparativos de mercado (CMA) e análise completa. Você pode baixar ou compartilhar diretamente com seu cliente."
   },
   {
-    question: "O que é crédito?",
-    answer: "1 crédito = 1 avaliação completa de imóvel ou 1 busca no chat AVA. Cada vez que você gera uma avaliação ou conversa com a IA, usa 1 crédito. Escolha o plano com a quantidade ideal para você."
+    question: "A AvaLuz serve para precificação de imóvel para venda e aluguel?",
+    answer: "Sim! A AvaLuz calcula tanto o valor de venda quanto o valor de aluguel estimado do imóvel, além da rentabilidade. Tudo baseado em dados reais de mercado da região."
   },
   {
-    question: "Posso cancelar quando quiser?",
-    answer: "Sim. Você pode cancelar quando quiser, e ainda conta com 90 dias de garantia para testar a plataforma. Sem multas ou burocracia."
+    question: "A AvaLuz é fácil de usar para corretores?",
+    answer: "Sim! A plataforma foi desenvolvida pensando na rotina corrida do corretor. Interface limpa, poucos campos para preencher e resultado em segundos. Se você sabe usar WhatsApp, sabe usar AvaLuz."
   },
   {
-    question: "Meus dados ficam seguros?",
-    answer: "Absolutamente. Usamos criptografia de ponta e seguimos as melhores práticas de segurança. Seus dados nunca são compartilhados sem sua autorização."
+    question: "De onde vêm os dados dos comparativos (CMA)?",
+    answer: "Analisamos dados reais de mercado da sua região: imóveis à venda, vendidos recentemente e tendências de preço por m². Tudo atualizado e verificado para garantir precisão na avaliação."
   },
   {
-    question: "Como a AvaLuz usa meus dados?",
+    question: "O que é crédito e como funciona?",
+    answer: "1 crédito = 1 avaliação completa de imóvel ou 1 busca no chat AVA. Cada vez que você gera uma avaliação ou conversa com a assistente, usa 1 crédito. Escolha o plano com a quantidade ideal para você."
+  },
+  {
+    question: "Posso cancelar quando quiser? Tenho garantia?",
+    answer: "Sim! Você pode cancelar quando quiser, e ainda conta com 90 dias de garantia para testar a plataforma. Se não fizer sentido para você, cancele sem multas ou burocracia."
+  },
+  {
+    question: "Como meus dados são usados? (LGPD)",
     answer: "Seguimos a LGPD. Seus dados e os dados dos imóveis são usados apenas para análises, relatórios e melhoria da plataforma, sempre com segurança e consentimento. Você pode solicitar revisão ou exclusão a qualquer momento."
   }
 ];
 
 export function FAQSection() {
   return (
-    <section id="faq" className="py-20 md:py-28 bg-primary-dark relative overflow-hidden">
+    <section id="faq" className="py-20 md:py-28 bg-primary-dark relative overflow-hidden" aria-labelledby="faq-heading">
       {/* Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary/10 via-transparent to-transparent" />
@@ -54,12 +63,12 @@ export function FAQSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-4">
+          <h2 id="faq-heading" className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-4">
             Perguntas <span className="text-accent">Frequentes</span>
           </h2>
           <div className="w-20 h-1 bg-accent mx-auto rounded-full mb-6" />
           <p className="text-lg text-primary-foreground/70">
-            Tire suas dúvidas sobre a plataforma
+            Tire suas dúvidas sobre avaliação imobiliária, CMA e a plataforma AvaLuz
           </p>
         </motion.div>
 
@@ -100,9 +109,12 @@ export function FAQSection() {
           <Button 
             variant="outline" 
             className="gap-2 border-accent/30 text-primary-foreground hover:bg-accent/10 hover:border-accent/50 hover:text-accent group"
+            asChild
           >
-            Contate-nos
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            <Link to="/contato">
+              Entre em contato
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           </Button>
         </motion.div>
       </div>

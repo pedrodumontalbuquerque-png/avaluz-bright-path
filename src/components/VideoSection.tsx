@@ -7,7 +7,7 @@ export function VideoSection() {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   return (
-    <section id="videos" className="py-20 md:py-28 bg-[#0B1F33]">
+    <section id="videos" className="py-20 md:py-28 bg-[#0B1F33]" aria-labelledby="video-heading">
       <div className="container max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -16,12 +16,12 @@ export function VideoSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-4">
-            Veja como <span className="text-[#DF6009]">funciona</span>
+          <h2 id="video-heading" className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-4">
+            Veja a <span className="text-[#DF6009]">Avaliação Imobiliária</span> na Prática
           </h2>
           <div className="w-16 h-1 bg-[#DF6009] mx-auto rounded-full mb-6" />
           <p className="text-slate-300 text-lg max-w-2xl mx-auto">
-            Assista ao Henrique explicando a AvaLuz na prática.
+            Demonstração de como gerar avaliação de imóvel, CMA e relatório em PDF com a AvaLuz.
           </p>
         </motion.div>
 

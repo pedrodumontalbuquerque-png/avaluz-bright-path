@@ -35,16 +35,16 @@ export function WhySection() {
   const activeData = questions[activeQuestion];
 
   return (
-    <section className="py-16 sm:py-20 md:py-28 bg-white">
+    <section className="py-16 sm:py-20 md:py-28 bg-white" aria-labelledby="why-heading">
       <div className="container max-w-7xl">
         {/* Header */}
         <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-3 sm:mb-4">
-            Por que o corretor <span className="text-[#DF6009]">precisa</span> disso?
+          <h2 id="why-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-3 sm:mb-4">
+            Por que Corretores <span className="text-[#DF6009]">Precisam</span> de Avaliação Imobiliária Profissional?
           </h2>
           <div className="w-12 sm:w-16 h-1 bg-[#0A3F74] mx-auto rounded-full mb-4 sm:mb-6" />
           <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto px-4">
-            As dúvidas que travam sua decisão — respondidas em segundos.
+            As dúvidas sobre precificação de imóveis — respondidas com dados reais.
           </p>
         </div>
 

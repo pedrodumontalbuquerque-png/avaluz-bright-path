@@ -36,16 +36,16 @@ export function HeroSection() {
             </motion.div>
 
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] xl:text-[3.25rem] font-heading font-bold text-primary-foreground leading-tight mb-4 sm:mb-6">
-              Na visita, tempo é dinheiro.{" "}
-              <span className="text-accent">Mostre o valor com dados</span>, e feche com confiança.
+              AvaLuz: Avaliação Imobiliária em Segundos.{" "}
+              <span className="text-accent">Estudo de Mercado Personalizado</span> para Corretores.
             </h1>
 
             <p className="text-base sm:text-lg text-primary-foreground/80 max-w-xl mx-auto lg:mx-0 mb-3 sm:mb-4">
-              AvaLuz gera avaliação do imóvel, valor de aluguel, comparativos da região e um PDF profissional pronto para enviar ao cliente.
+              Plataforma de avaliação de imóveis para corretores e imobiliárias. Receba avaliação, valor de aluguel, CMA (análise comparativa de mercado) e relatório profissional em PDF em segundos.
             </p>
 
             <p className="text-sm sm:text-base text-primary-foreground/60 italic max-w-lg mx-auto lg:mx-0 mb-6 sm:mb-8">
-              "Você já chutou um preço e viu o cliente travar? Com AvaLuz, você prova o valor com estudo de mercado."
+              "Na visita, tempo é dinheiro. Mostre o valor com dados e feche com confiança."
             </p>
 
             {/* CTAs */}

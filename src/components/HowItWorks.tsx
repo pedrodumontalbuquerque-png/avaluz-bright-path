@@ -270,7 +270,7 @@ const mockupComponents: Record<string, React.FC> = {
 
 export function HowItWorks() {
   return (
-    <section id="como-funciona" className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-primary-dark to-[#062a4f] relative overflow-hidden">
+    <section id="como-funciona" className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-primary-dark to-[#062a4f] relative overflow-hidden" aria-labelledby="how-it-works-heading">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-10" />
       
@@ -283,11 +283,11 @@ export function HowItWorks() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12 sm:mb-16 md:mb-24"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-3 sm:mb-4">
-            Veja o <span className="text-accent">AvaLuz</span> em ação
+          <h2 id="how-it-works-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-3 sm:mb-4">
+            Avaliação de Imóveis Online: <span className="text-accent">Como Funciona</span>
           </h2>
           <p className="text-base sm:text-lg text-white/70 max-w-2xl mx-auto px-4">
-            Do cadastro ao PDF pronto: transparência total em cada etapa
+            Do cadastro do imóvel ao relatório em PDF: avaliação imobiliária transparente e profissional
           </p>
         </motion.div>
 
