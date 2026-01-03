@@ -74,7 +74,7 @@ export function TestimonialsSection() {
   }, [isPaused]);
 
   return (
-    <section className="py-16 sm:py-20 md:py-28 bg-primary-dark relative overflow-hidden">
+    <section className="py-16 sm:py-20 md:py-28 bg-primary-dark relative overflow-hidden" aria-labelledby="testimonials-heading">
       <div className="absolute inset-0 bg-grid-pattern opacity-20" />
 
       <div className="container relative z-10 mb-8 sm:mb-12">
@@ -85,8 +85,8 @@ export function TestimonialsSection() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-3 sm:mb-4">
-            O que dizem os <span className="text-accent">corretores</span>
+          <h2 id="testimonials-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-3 sm:mb-4">
+            Corretores que Usam <span className="text-accent">AvaLuz</span>
           </h2>
           <div className="w-16 sm:w-20 h-1 bg-accent mx-auto rounded-full mb-4 sm:mb-6" />
           <p className="text-base sm:text-lg text-primary-foreground/70 max-w-2xl mx-auto px-4">

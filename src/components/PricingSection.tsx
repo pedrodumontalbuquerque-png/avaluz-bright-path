@@ -84,7 +84,7 @@ const plans = [
 
 export function PricingSection() {
   return (
-    <section id="planos" className="py-16 sm:py-20 md:py-28 bg-background relative overflow-hidden">
+    <section id="planos" className="py-16 sm:py-20 md:py-28 bg-background relative overflow-hidden" aria-labelledby="pricing-heading">
       <div className="absolute inset-0 bg-grid-pattern-light opacity-50" />
       <div className="absolute top-0 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-accent/5 rounded-full blur-3xl" />
@@ -97,12 +97,12 @@ export function PricingSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-8 sm:mb-12"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-3 sm:mb-4">
-            Escolha o <span className="text-primary">plano ideal</span>
+          <h2 id="pricing-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-3 sm:mb-4">
+            Planos de Avaliação Imobiliária: <span className="text-primary">Escolha o ideal</span>
           </h2>
           <div className="w-16 sm:w-20 h-1 bg-accent mx-auto rounded-full mb-4 sm:mb-6" />
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-4 px-4">
-            Comece grátis e evolua conforme sua necessidade
+            Ferramenta de avaliação de imóveis para corretores. Comece grátis e evolua conforme sua necessidade
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">

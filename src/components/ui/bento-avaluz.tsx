@@ -168,7 +168,7 @@ function BentoCard({ feature, index }: { feature: Feature; index: number }) {
 
 export function BentoAvaluz() {
   return (
-    <section id="beneficios" className="py-16 sm:py-20 md:py-28 bg-background relative overflow-hidden">
+    <section id="beneficios" className="py-16 sm:py-20 md:py-28 bg-background relative overflow-hidden" aria-labelledby="benefits-heading">
       {/* Background elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" />
       <div className="absolute top-0 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -177,12 +177,12 @@ export function BentoAvaluz() {
       <div className="container relative z-10">
         {/* Header */}
         <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-3 sm:mb-4">
-            O que você <span className="text-primary">recebe</span>
+          <h2 id="benefits-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-3 sm:mb-4">
+            Estudo de Mercado e CMA: <span className="text-primary">O que você recebe</span>
           </h2>
           <div className="w-16 sm:w-20 h-1 bg-primary mx-auto rounded-full mb-4 sm:mb-6" />
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-            Tudo que você precisa para fechar mais vendas com credibilidade
+            Ferramentas completas de avaliação imobiliária para fechar mais vendas com credibilidade
           </p>
         </div>
 
