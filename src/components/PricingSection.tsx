@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, Sparkles, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
 import {
   Tooltip,
   TooltipContent,
@@ -10,7 +12,8 @@ import {
 const plans = [
   {
     name: "Grátis",
-    price: "R$ 0",
+    monthlyPrice: "R$ 0",
+    yearlyPrice: "R$ 0",
     period: "",
     credits: "2 créditos de avaliação",
     description: "Para experimentar",
@@ -25,9 +28,12 @@ const plans = [
   },
   {
     name: "Profissional",
-    price: "R$ 97",
+    monthlyPrice: "R$ 97",
+    yearlyPrice: "R$ 997",
     period: "/mês",
+    yearlyPeriod: "/ano",
     credits: "80 créditos mensais",
+    yearlyCredits: "960 créditos anuais",
     description: "Para corretores ativos",
     features: [
       { text: "Valor do imóvel + aluguel", available: true },
@@ -45,9 +51,12 @@ const plans = [
   },
   {
     name: "Broker",
-    price: "R$ 497,90",
+    monthlyPrice: "R$ 497,90",
+    yearlyPrice: "R$ 5.799",
     period: "/mês",
+    yearlyPeriod: "/ano",
     credits: "500 créditos mensais",
+    yearlyCredits: "6.000 créditos anuais",
     description: "Para time pequeno",
     features: [
       { text: "Até 8 pessoas", available: true },
@@ -64,9 +73,12 @@ const plans = [
   },
   {
     name: "Imobiliária",
-    price: "R$ 997",
+    monthlyPrice: "R$ 997",
+    yearlyPrice: "R$ 10.997",
     period: "/mês",
+    yearlyPeriod: "/ano",
     credits: "Até 1.200 créditos",
+    yearlyCredits: "Até 14.400 créditos",
     description: "Equipes até 15 pessoas",
     features: [
       { text: "Tudo do Broker", available: true },
@@ -83,6 +95,8 @@ const plans = [
 ];
 
 export function PricingSection() {
+  const [isYearly, setIsYearly] = useState(false);
+
   return (
     <section id="planos" className="py-16 sm:py-20 md:py-28 bg-background relative overflow-hidden" aria-labelledby="pricing-heading">
       <div className="absolute inset-0 bg-grid-pattern-light opacity-50" />
@@ -104,6 +118,26 @@ export function PricingSection() {
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-4 px-4">
             Ferramenta de avaliação de imóveis para corretores. Comece grátis e evolua conforme sua necessidade
           </p>
+          
+          {/* Switch Mensal/Anual */}
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <span className={`text-sm font-medium transition-colors ${!isYearly ? "text-primary" : "text-muted-foreground"}`}>
+              Mensal
+            </span>
+            <Switch
+              checked={isYearly}
+              onCheckedChange={setIsYearly}
+              className="data-[state=checked]:bg-accent"
+            />
+            <span className={`text-sm font-medium transition-colors ${isYearly ? "text-primary" : "text-muted-foreground"}`}>
+              Anual
+            </span>
+            {isYearly && (
+              <span className="ml-2 px-2 py-0.5 bg-accent/20 text-accent text-xs font-semibold rounded-full">
+                Economize até 15%
+              </span>
+            )}
+          </div>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
             <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium">
@@ -154,15 +188,15 @@ export function PricingSection() {
                     
                     <div className="mb-2">
                       <span className={`text-2xl sm:text-3xl font-heading font-bold ${plan.popular ? "text-accent" : "text-foreground"}`}>
-                        {plan.price}
+                        {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
                       </span>
-                      {plan.period && (
-                        <span className="text-muted-foreground text-sm">{plan.period}</span>
+                      {(isYearly ? plan.yearlyPeriod : plan.period) && (
+                        <span className="text-muted-foreground text-sm">{isYearly ? plan.yearlyPeriod : plan.period}</span>
                       )}
                     </div>
                     
                     <p className="text-xs sm:text-sm text-primary font-medium">
-                      {plan.credits}
+                      {isYearly && plan.yearlyCredits ? plan.yearlyCredits : plan.credits}
                     </p>
                   </div>
 
