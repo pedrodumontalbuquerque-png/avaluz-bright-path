@@ -120,23 +120,23 @@ export function PricingSection() {
           </p>
           
           {/* Switch Mensal/Anual */}
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <span className={`text-sm font-medium transition-colors ${!isYearly ? "text-primary" : "text-muted-foreground"}`}>
-              Mensal
-            </span>
-            <Switch
-              checked={isYearly}
-              onCheckedChange={setIsYearly}
-              className="data-[state=checked]:bg-accent"
-            />
-            <span className={`text-sm font-medium transition-colors ${isYearly ? "text-primary" : "text-muted-foreground"}`}>
-              Anual
-            </span>
-            {isYearly && (
-              <span className="ml-2 px-2 py-0.5 bg-accent/20 text-accent text-xs font-semibold rounded-full">
-                Economize até 15%
+          <div className="flex items-center justify-center mb-6">
+            <div className="flex items-center gap-3">
+              <span className={`text-sm font-medium transition-colors ${!isYearly ? "text-primary" : "text-muted-foreground"}`}>
+                Mensal
               </span>
-            )}
+              <Switch
+                checked={isYearly}
+                onCheckedChange={setIsYearly}
+                className="data-[state=checked]:bg-accent"
+              />
+              <span className={`text-sm font-medium transition-colors ${isYearly ? "text-primary" : "text-muted-foreground"}`}>
+                Anual
+              </span>
+            </div>
+            <span className={`ml-3 px-2 py-0.5 bg-accent/20 text-accent text-xs font-semibold rounded-full transition-opacity ${isYearly ? "opacity-100" : "opacity-0"}`}>
+              Economize até 15%
+            </span>
           </div>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
