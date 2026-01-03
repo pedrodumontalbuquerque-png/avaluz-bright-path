@@ -7,7 +7,7 @@ import avaluzLogo from "@/assets/avaluz-logo.png";
 const navLinks = [
   { label: "Como Funciona", href: "#como-funciona" },
   { label: "O que você recebe", href: "#beneficios" },
-  { label: "Microvídeos", href: "#videos" },
+  { label: "Veja na Prática", href: "#videos" },
   { label: "Planos", href: "#planos" },
   { label: "FAQ", href: "#faq" },
 ];
