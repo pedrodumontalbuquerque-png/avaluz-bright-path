@@ -11,6 +11,7 @@ import { GlossarySection } from "@/components/GlossarySection";
 import { FAQSection } from "@/components/FAQSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -110,6 +111,7 @@ const Index = () => {
           <CTASection />
         </main>
         <Footer />
+        <WhatsAppButton />
       </div>
     </>
   );
