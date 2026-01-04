@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { Quote, Star } from "lucide-react";
+import { Quote, Star, ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-
+import { Button } from "@/components/ui/button";
 const testimonials = [
   {
     id: 1,
@@ -139,10 +139,28 @@ export function TestimonialsSection() {
         ))}
       </div>
 
-      <div className="container mt-6 sm:mt-8">
-        <p className="text-center text-xs sm:text-sm text-primary-foreground/40 italic">
-          Depoimentos ilustrativos. Casos reais em produção.
-        </p>
+      <div className="container mt-8 sm:mt-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="text-center"
+        >
+          <Button
+            size="lg"
+            className="bg-accent hover:bg-accent/90 text-accent-foreground px-6 sm:px-8 py-5 sm:py-6 h-auto group shadow-xl btn-glow-accent font-semibold"
+            asChild
+          >
+            <a href="https://avaluz.app/auth/signin">
+              Começar minha avaliação grátis
+              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
+            </a>
+          </Button>
+          <p className="text-xs sm:text-sm text-primary-foreground/40 italic mt-4">
+            Depoimentos ilustrativos. Casos reais em produção.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

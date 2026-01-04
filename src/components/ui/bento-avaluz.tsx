@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { FileText, Zap, MessageSquare, History, BarChart3 } from "lucide-react";
+import { FileText, Zap, MessageSquare, History, BarChart3, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 interface Feature {
   icon: React.ElementType;
   badge: string;
@@ -192,6 +193,26 @@ export function BentoAvaluz() {
             <BentoCard key={feature.title} feature={feature} index={index} />
           ))}
         </div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="text-center mt-10 sm:mt-14"
+        >
+          <Button
+            size="lg"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-5 sm:py-6 h-auto group shadow-xl btn-glow font-semibold"
+            asChild
+          >
+            <a href="https://avaluz.app/auth/signin">
+              Acessar todas as funcionalidades
+              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
+            </a>
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
