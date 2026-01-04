@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { Play } from "lucide-react";
+import { Play, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-
+import { Button } from "@/components/ui/button";
 export function VideoSection() {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
@@ -58,6 +58,25 @@ export function VideoSection() {
               </div>
             </div>
           </button>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="text-center mt-8 sm:mt-10"
+        >
+          <Button
+            size="lg"
+            className="bg-[#DF6009] hover:bg-[#DF6009]/90 text-white px-6 sm:px-8 py-5 sm:py-6 h-auto group shadow-xl font-semibold"
+            asChild
+          >
+            <a href="https://avaluz.app/auth/signin">
+              Testar AvaLuz agora
+              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
+            </a>
+          </Button>
         </motion.div>
       </div>
 

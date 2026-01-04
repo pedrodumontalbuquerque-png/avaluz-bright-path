@@ -360,6 +360,26 @@ export function HowItWorks() {
             );
           })}
         </div>
+
+        {/* Final CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="text-center mt-16 sm:mt-20"
+        >
+          <a
+            href="https://avaluz.app/auth/signin"
+            className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground px-8 sm:px-10 py-4 sm:py-5 rounded-lg font-semibold shadow-xl transition-all group text-sm sm:text-base"
+          >
+            Criar minha conta grátis
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
+          </a>
+          <p className="text-white/50 text-xs sm:text-sm mt-4">
+            Não precisa de cartão de crédito
+          </p>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { BookOpen, BarChart3, FileText, Target } from "lucide-react";
-
+import { BookOpen, BarChart3, FileText, Target, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 const glossaryItems = [
   {
     icon: BarChart3,
@@ -105,6 +105,18 @@ export function GlossarySection() {
             <p className="mt-4 text-sm text-muted-foreground italic">
               Com a <strong className="text-primary">AvaLuz</strong>, todo esse processo é automatizado. Você insere os dados e recebe avaliação, CMA e relatório em PDF em segundos.
             </p>
+            <div className="mt-6">
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-5 h-auto group shadow-lg btn-glow font-semibold"
+                asChild
+              >
+                <a href="https://avaluz.app/auth/signin">
+                  Gerar minha primeira avaliação
+                  <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </a>
+              </Button>
+            </div>
           </motion.div>
         </div>
       </div>
