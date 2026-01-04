@@ -1,6 +1,27 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Sparkles, Info } from "lucide-react";
+import { 
+  Check, 
+  Sparkles, 
+  Info, 
+  Home, 
+  Building2, 
+  MessageSquare, 
+  TrendingUp, 
+  Clock, 
+  Headphones, 
+  Newspaper, 
+  Users, 
+  Image, 
+  Award, 
+  FileText, 
+  Users2, 
+  GitBranch, 
+  Target, 
+  LayoutDashboard,
+  Star,
+  type LucideIcon
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import {
@@ -8,6 +29,14 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+
+type FeatureType = {
+  text: string;
+  available: boolean;
+  comingSoon?: boolean;
+  icon?: LucideIcon;
+  highlight?: boolean;
+};
 
 const plans = [
   {
@@ -18,9 +47,9 @@ const plans = [
     credits: "2 créditos de avaliação",
     description: "Para experimentar",
     features: [
-      { text: "Valor do imóvel", available: true },
-      { text: "Valor do aluguel", available: true },
-    ],
+      { text: "Valor do imóvel", available: true, icon: Home },
+      { text: "Valor do aluguel", available: true, icon: Building2 },
+    ] as FeatureType[],
     cta: "Começar grátis",
     variant: "outline" as const,
     popular: false,
@@ -36,19 +65,19 @@ const plans = [
     yearlyCredits: "960 créditos anuais",
     description: "Para corretores ativos",
     features: [
-      { text: "Avaliações", available: true },
-      { text: "Valor do imóvel", available: true },
-      { text: "Valor do aluguel", available: true },
-      { text: "Bate-papo com IA especializada", available: true },
-      { text: "Projeção e valorização do imóvel", available: true },
-      { text: "Histórico", available: true },
-      { text: "Suporte", available: true },
-      { text: "Noticiário imobiliário", available: true },
-      { text: "Grupo de Network (Corretores)", available: true },
-      { text: "Leitura de imagem na avaliação", available: true, comingSoon: true },
-      { text: "Premiações por app utilizado", available: true, comingSoon: true },
-      { text: "Estudo de mercado com foto do corretor", available: true },
-    ],
+      { text: "Avaliações", available: true, icon: Star },
+      { text: "Valor do imóvel", available: true, icon: Home },
+      { text: "Valor do aluguel", available: true, icon: Building2 },
+      { text: "Bate-papo com IA especializada", available: true, icon: MessageSquare, highlight: true },
+      { text: "Projeção e valorização do imóvel", available: true, icon: TrendingUp, highlight: true },
+      { text: "Histórico", available: true, icon: Clock },
+      { text: "Suporte", available: true, icon: Headphones },
+      { text: "Noticiário imobiliário", available: true, icon: Newspaper },
+      { text: "Grupo de Network (Corretores)", available: true, icon: Users },
+      { text: "Leitura de imagem na avaliação", available: true, comingSoon: true, icon: Image },
+      { text: "Premiações por app utilizado", available: true, comingSoon: true, icon: Award },
+      { text: "Estudo de mercado com foto do corretor", available: true, icon: FileText, highlight: true },
+    ] as FeatureType[],
     cta: "Assinar Profissional",
     variant: "default" as const,
     popular: true,
@@ -64,20 +93,20 @@ const plans = [
     yearlyCredits: "6.000 créditos anuais",
     description: "Para time pequeno",
     features: [
-      { text: "Até 8 pessoas", available: true },
-      { text: "Fluxo de avaliações dos corretores", available: true },
-      { text: "Funil de vendas dos corretores", available: true },
-      { text: "Valor do imóvel", available: true },
-      { text: "Valor do aluguel", available: true },
-      { text: "Bate-papo com IA especializada", available: true },
-      { text: "Histórico", available: true },
-      { text: "Noticiário imobiliário", available: true },
-      { text: "Grupo de Network (Donos de imobiliária)", available: true },
-      { text: "Leitura de imagem na avaliação", available: true, comingSoon: true },
-      { text: "Premiações por app utilizado", available: true, comingSoon: true },
-      { text: "Suporte individualizado", available: true },
-      { text: "Estudo com foto do corretor e imobiliária", available: true },
-    ],
+      { text: "Até 8 pessoas", available: true, icon: Users2, highlight: true },
+      { text: "Fluxo de avaliações dos corretores", available: true, icon: GitBranch, highlight: true },
+      { text: "Funil de vendas dos corretores", available: true, icon: Target, highlight: true },
+      { text: "Valor do imóvel", available: true, icon: Home },
+      { text: "Valor do aluguel", available: true, icon: Building2 },
+      { text: "Bate-papo com IA especializada", available: true, icon: MessageSquare },
+      { text: "Histórico", available: true, icon: Clock },
+      { text: "Noticiário imobiliário", available: true, icon: Newspaper },
+      { text: "Grupo de Network (Donos de imobiliária)", available: true, icon: Users },
+      { text: "Leitura de imagem na avaliação", available: true, comingSoon: true, icon: Image },
+      { text: "Premiações por app utilizado", available: true, comingSoon: true, icon: Award },
+      { text: "Suporte individualizado", available: true, icon: Headphones, highlight: true },
+      { text: "Estudo com foto do corretor e imobiliária", available: true, icon: FileText, highlight: true },
+    ] as FeatureType[],
     cta: "Assinar Broker",
     variant: "outline" as const,
     popular: false,
@@ -93,20 +122,20 @@ const plans = [
     yearlyCredits: "14.400 créditos anuais",
     description: "Equipes até 15 pessoas",
     features: [
-      { text: "Até 15 pessoas (avulsa R$ 47,90)", available: true },
-      { text: "Fluxo de avaliações dos corretores", available: true },
-      { text: "Funil de vendas dos corretores", available: true },
-      { text: "Painel de captações diárias", available: true },
-      { text: "Valor do imóvel", available: true },
-      { text: "Valor do aluguel", available: true },
-      { text: "Bate-papo com IA especializada", available: true },
-      { text: "Histórico", available: true },
-      { text: "Noticiário imobiliário", available: true },
-      { text: "Grupo de Network (Donos de imobiliária)", available: true },
-      { text: "Leitura de imagem na avaliação", available: true, comingSoon: true },
-      { text: "Premiações por app utilizado", available: true, comingSoon: true },
-      { text: "Suporte individualizado", available: true },
-    ],
+      { text: "Até 15 pessoas (avulsa R$ 47,90)", available: true, icon: Users2, highlight: true },
+      { text: "Fluxo de avaliações dos corretores", available: true, icon: GitBranch, highlight: true },
+      { text: "Funil de vendas dos corretores", available: true, icon: Target, highlight: true },
+      { text: "Painel de captações diárias", available: true, icon: LayoutDashboard, highlight: true },
+      { text: "Valor do imóvel", available: true, icon: Home },
+      { text: "Valor do aluguel", available: true, icon: Building2 },
+      { text: "Bate-papo com IA especializada", available: true, icon: MessageSquare },
+      { text: "Histórico", available: true, icon: Clock },
+      { text: "Noticiário imobiliário", available: true, icon: Newspaper },
+      { text: "Grupo de Network (Donos de imobiliária)", available: true, icon: Users },
+      { text: "Leitura de imagem na avaliação", available: true, comingSoon: true, icon: Image },
+      { text: "Premiações por app utilizado", available: true, comingSoon: true, icon: Award },
+      { text: "Suporte individualizado", available: true, icon: Headphones, highlight: true },
+    ] as FeatureType[],
     cta: "Falar com vendas",
     variant: "outline" as const,
     popular: false,
@@ -221,28 +250,43 @@ export function PricingSection() {
                   </div>
 
                   <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2 sm:gap-3">
-                        <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                          plan.popular ? "bg-accent" : "bg-primary/10"
-                        }`}>
-                          <Check className={`w-2.5 h-2.5 sm:w-3 sm:h-3 ${plan.popular ? "text-accent-foreground" : "text-primary"}`} />
-                        </div>
-                        <span className="text-xs sm:text-sm text-muted-foreground flex items-center gap-1 min-w-0">
-                          <span className="truncate">{feature.text}</span>
-                          {feature.comingSoon && (
-                            <Tooltip>
-                              <TooltipTrigger>
-                                <span className="badge-coming-soon ml-1 flex-shrink-0">Breve</span>
-                              </TooltipTrigger>
-                              <TooltipContent className="bg-popover border border-border">
-                                <p>Em desenvolvimento</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          )}
-                        </span>
-                      </li>
-                    ))}
+                    {plan.features.map((feature, i) => {
+                      const IconComponent = feature.icon;
+                      const isHighlight = feature.highlight;
+                      
+                      return (
+                        <li key={i} className={`flex items-start gap-2 sm:gap-3 ${isHighlight ? "bg-accent/5 -mx-2 px-2 py-1.5 rounded-lg" : ""}`}>
+                          <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
+                            isHighlight 
+                              ? "bg-accent text-accent-foreground" 
+                              : plan.popular 
+                                ? "bg-accent text-accent-foreground" 
+                                : "bg-primary/10 text-primary"
+                          }`}>
+                            {IconComponent ? (
+                              <IconComponent className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+                            ) : (
+                              <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+                            )}
+                          </div>
+                          <span className={`text-xs sm:text-sm flex items-center gap-1 min-w-0 ${
+                            isHighlight ? "text-foreground font-medium" : "text-muted-foreground"
+                          }`}>
+                            <span className="truncate">{feature.text}</span>
+                            {feature.comingSoon && (
+                              <Tooltip>
+                                <TooltipTrigger>
+                                  <span className="badge-coming-soon ml-1 flex-shrink-0">Breve</span>
+                                </TooltipTrigger>
+                                <TooltipContent className="bg-popover border border-border">
+                                  <p>Em desenvolvimento</p>
+                                </TooltipContent>
+                              </Tooltip>
+                            )}
+                          </span>
+                        </li>
+                      );
+                    })}
                   </ul>
 
                   <Button
