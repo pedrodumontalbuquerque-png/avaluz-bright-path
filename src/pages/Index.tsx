@@ -100,9 +100,9 @@ const Index = () => {
         <Header />
         <main>
           <HeroSection />
+          <VideoSection />
           <HowItWorks />
           <BenefitsSection />
-          <VideoSection />
           <WhySection />
           <TestimonialsSection />
           <PricingSection />
