@@ -35,7 +35,7 @@ export function HeroSection() {
               <span className="line-clamp-1">Relatórios em PDF + Estudo de Mercado (CMA) em minutos</span>
             </motion.div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] xl:text-[3.25rem] font-heading font-bold text-primary-foreground leading-tight mb-4 sm:mb-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] xl:text-[3.25rem] font-heading font-bold text-primary-foreground leading-[1.2] md:leading-[1.10] mb-4 sm:mb-6">
               AvaLuz: Avaliação Imobiliária em Segundos.{" "}
               <span className="text-accent">Estudo de Mercado Personalizado</span> para Corretores.
             </h1>
