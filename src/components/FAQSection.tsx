@@ -36,7 +36,7 @@ const faqs = [
   },
   {
     question: "O que é crédito e como funciona?",
-    answer: "1 crédito = 1 avaliação completa de imóvel ou 1 busca no chat AVA. Cada vez que você gera uma avaliação ou conversa com a assistente, usa 1 crédito. Escolha o plano com a quantidade ideal para você."
+    answer: "1 crédito = 1 avaliação completa de imóvel. Cada vez que você gera uma avaliação, usa 1 crédito. Escolha o plano com a quantidade ideal para você."
   },
   {
     question: "Posso cancelar quando quiser? Tenho garantia?",
