@@ -7,7 +7,7 @@ import {
 
 const WhatsAppButton = () => {
   const message = encodeURIComponent("Quero saber mais sobre a AvaLuz");
-  const whatsappUrl = `https://wa.me/556192137437?text=${message}`;
+  const whatsappUrl = `https://wa.me/5561982842802?text=${message}`;
 
   return (
     <TooltipProvider>
