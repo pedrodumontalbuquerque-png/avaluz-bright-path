@@ -46,7 +46,7 @@ const plans = [
     monthlyPrice: "R$ 0",
     yearlyPrice: "R$ 0",
     period: "",
-    credits: "2 créditos de avaliação",
+    credits: "",
     description: "Para experimentar",
     features: [
       { text: "Valor do imóvel", available: true, icon: Home },
@@ -250,9 +250,11 @@ function PlanCard({
               )}
             </div>
             
-            <p className="text-xs sm:text-sm text-primary font-medium">
-              {isYearly && plan.yearlyCredits ? plan.yearlyCredits : plan.credits}
-            </p>
+            {(isYearly && plan.yearlyCredits ? plan.yearlyCredits : plan.credits) && (
+              <p className="text-xs sm:text-sm text-primary font-medium">
+                {isYearly && plan.yearlyCredits ? plan.yearlyCredits : plan.credits}
+              </p>
+            )}
           </div>
 
           <ul className="space-y-2 sm:space-y-3 mb-4">

@@ -7,7 +7,6 @@ import avaluzLogo from "@/assets/avaluz-logo.png";
 const navLinks = [
   { label: "Como Funciona", href: "#como-funciona" },
   { label: "O que você recebe", href: "#beneficios" },
-  { label: "Veja na Prática", href: "#videos" },
   { label: "Planos", href: "#planos" },
   { label: "FAQ", href: "#faq" },
 ];
@@ -60,9 +59,9 @@ export function Header() {
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-2 xl:gap-3 flex-shrink-0">
             <Button 
-              variant="ghost" 
+              variant="outline" 
               size="sm"
-              className="text-primary-foreground/70 hover:text-primary-foreground hover:bg-primary-foreground/10"
+              className="bg-transparent border-2 border-primary-foreground text-primary-foreground font-semibold hover:bg-primary-foreground hover:text-primary"
               asChild
             >
               <a href="https://avaluz.app/auth/signin">Login</a>
@@ -118,8 +117,8 @@ export function Header() {
               ))}
               <div className="flex flex-col gap-3 pt-4 mt-2 border-t border-primary-foreground/10">
                 <Button 
-                  variant="ghost" 
-                  className="justify-center text-primary-foreground/70 hover:text-primary-foreground w-full min-h-[44px]"
+                  variant="outline" 
+                  className="justify-center bg-transparent border-2 border-primary-foreground text-primary-foreground font-semibold hover:bg-primary-foreground hover:text-primary w-full min-h-[44px]"
                   asChild
                 >
                   <a href="https://avaluz.app/auth/signin">Login</a>

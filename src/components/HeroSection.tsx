@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowRight, FileText, Play, Home, DollarSign, BarChart3, FileCheck } from "lucide-react";
+import { ArrowDown, ArrowRight, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import demoVideo from "@/assets/avaluz-demo.webm";
+import demoPoster from "@/assets/avaluz-capa.webp";
 
 export function HeroSection() {
   return (
@@ -69,9 +71,12 @@ export function HeroSection() {
                 size="lg"
                 variant="outline"
                 className="text-sm sm:text-base px-6 sm:px-8 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:border-primary-foreground/50 transition-all duration-300 group w-full sm:w-auto min-h-[48px]"
+                asChild
               >
-                <Play className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
-                Ver microvídeos do app
+                <a href="#planos">
+                  Ver planos
+                  <ArrowDown className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+                </a>
               </Button>
             </motion.div>
 
@@ -105,126 +110,35 @@ export function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Dashboard Mockup */}
+          {/* Platform Video */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="relative perspective-1000 order-2 mt-4 lg:mt-0"
+            className="relative order-2 mt-4 lg:mt-0"
           >
-            {/* Main Dashboard Card */}
-            <div className="relative z-10 float max-w-full">
-              <div className="glass-card rounded-xl sm:rounded-2xl overflow-hidden border-primary-light/20">
-                {/* Browser Header */}
-                <div className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-3 bg-primary-dark/60 border-b border-primary-light/10">
-                  <div className="flex gap-1 sm:gap-1.5">
-                    <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-400/60" />
-                    <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-400/60" />
-                    <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-400/60" />
-                  </div>
-                  <div className="flex-1 mx-2 sm:mx-4 min-w-0">
-                    <div className="bg-primary-dark/50 rounded-md px-2 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs text-primary-foreground/50 truncate">
-                      app.avaluz.com.br/avaliacao
-                    </div>
-                  </div>
+            <div className="relative z-10 glass-card rounded-xl sm:rounded-2xl overflow-hidden border-primary-light/20 shadow-2xl">
+              <div className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-3 bg-primary-dark/60 border-b border-primary-light/10">
+                <div className="flex gap-1 sm:gap-1.5">
+                  <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-400/60" />
+                  <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-400/60" />
+                  <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-400/60" />
                 </div>
-                
-                {/* Dashboard Content */}
-                <div className="p-4 sm:p-6 bg-gradient-to-br from-card/95 to-primary-dark/60">
-                  {/* Cards Grid */}
-                  <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
-                    <div className="bg-primary-dark/40 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-primary-light/10">
-                      <div className="flex items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
-                        <Home className="w-3 h-3 sm:w-4 sm:h-4 text-primary-light" />
-                        <span className="text-[10px] sm:text-xs text-primary-foreground/60">Valor Estimado</span>
-                      </div>
-                      <p className="text-base sm:text-xl font-heading font-bold text-primary-foreground">R$ 485.000</p>
-                    </div>
-                    <div className="bg-primary-dark/40 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-primary-light/10">
-                      <div className="flex items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
-                        <DollarSign className="w-3 h-3 sm:w-4 sm:h-4 text-accent" />
-                        <span className="text-[10px] sm:text-xs text-primary-foreground/60">Valor do Aluguel</span>
-                      </div>
-                      <p className="text-base sm:text-xl font-heading font-bold text-primary-foreground">R$ 2.800/mês</p>
-                    </div>
-                  </div>
-
-                  {/* CMA Section */}
-                  <div className="bg-primary-dark/40 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-primary-light/10 mb-3 sm:mb-4">
-                    <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
-                      <BarChart3 className="w-3 h-3 sm:w-4 sm:h-4 text-primary-light" />
-                      <span className="text-xs sm:text-sm font-medium text-primary-foreground">CMA: Comparativos por m²</span>
-                    </div>
-                    <div className="flex items-end gap-1.5 sm:gap-2 h-14 sm:h-20">
-                      {[65, 85, 70, 95, 80, 90, 75].map((h, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{ height: 0 }}
-                          animate={{ height: `${h}%` }}
-                          transition={{ delay: 0.5 + i * 0.08, duration: 0.4 }}
-                          className={`flex-1 rounded-t ${i === 3 ? 'bg-accent' : 'bg-primary-light/60'}`}
-                        />
-                      ))}
-                    </div>
-                    <div className="flex justify-between text-[10px] sm:text-xs text-primary-foreground/50 mt-1.5 sm:mt-2">
-                      <span>R$ 5.200/m²</span>
-                      <span className="hidden xs:inline">R$ 5.700/m²</span>
-                      <span>R$ 6.100/m²</span>
-                    </div>
-                  </div>
-
-                  {/* PDF Status */}
-                  <div className="flex items-center justify-between bg-green-500/10 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-green-500/20">
-                    <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-                      <FileCheck className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0" />
-                      <span className="text-xs sm:text-sm font-medium text-primary-foreground truncate">PDF Gerado</span>
-                    </div>
-                    <span className="text-[10px] sm:text-xs text-green-400 font-medium flex-shrink-0">Pronto para envio</span>
+                <div className="flex-1 mx-2 sm:mx-4 min-w-0">
+                  <div className="bg-primary-dark/50 rounded-md px-2 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs text-primary-foreground/50 truncate">
+                    app.avaluz.com.br/avaliacao
                   </div>
                 </div>
               </div>
-
-              {/* Floating Toast Cards - Hidden on small mobile */}
-              <motion.div
-                initial={{ opacity: 0, y: 20, x: -20 }}
-                animate={{ opacity: 1, y: 0, x: 0 }}
-                transition={{ delay: 1, duration: 0.4 }}
-                className="hidden sm:block absolute -bottom-4 -left-4 glass-card rounded-xl p-2 sm:p-3 border border-primary-light/20 float-delayed"
-              >
-                <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-green-500/20 flex items-center justify-center">
-                    <span className="text-green-400 text-xs sm:text-sm">✓</span>
-                  </div>
-                  <div>
-                    <p className="text-[10px] sm:text-xs font-medium text-slate-950">Relatório pronto!</p>
-                    <p className="text-[9px] sm:text-[10px] text-secondary-foreground">Há 2 segundos</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: -20, x: 20 }}
-                animate={{ opacity: 1, y: 0, x: 0 }}
-                transition={{ delay: 1.2, duration: 0.4 }}
-                className="hidden sm:block absolute -top-2 -right-2 glass-card rounded-xl px-2 sm:px-3 py-1.5 sm:py-2 border border-primary-light/20 float-slow"
-              >
-                <div className="flex items-center gap-1.5 sm:gap-2">
-                  <BarChart3 className="w-3 h-3 sm:w-4 sm:h-4 text-accent" />
-                  <span className="text-[10px] sm:text-xs font-medium text-secondary-foreground">CMA atualizado</span>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.4, duration: 0.4 }}
-                className="hidden md:block absolute top-1/2 -right-6 glass-card rounded-xl px-2 sm:px-3 py-1.5 sm:py-2 border border-primary-light/20 float"
-              >
-                <div className="flex items-center gap-1.5 sm:gap-2">
-                  <FileText className="w-3 h-3 sm:w-4 sm:h-4 text-primary-light" />
-                  <span className="text-[10px] sm:text-xs font-medium text-secondary-foreground">PDF exportado</span>
-                </div>
-              </motion.div>
+              <video
+                src={demoVideo}
+                controls
+                poster={demoPoster}
+                playsInline
+                preload="metadata"
+                aria-label="Demonstração da plataforma AvaLuz"
+                className="w-full aspect-video object-cover bg-primary-dark"
+              />
             </div>
 
             {/* Background Glow */}
